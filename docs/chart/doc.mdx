@@ -1,0 +1,180 @@
+import { Demo } from './demo'
+import { Demo as DemoCustom } from './demo-custom'
+import { Demo as DemoReveal } from './demo-reveal'
+import { Demo as DemoColor } from './demo-color'
+import { Demo as DemoStatic } from './demo-static'
+
+<DemoCanvas>
+  <DemoPreview>
+    <Demo />
+  </DemoPreview>
+  <DemoCode>
+    ```tsx file=./demo.tsx
+    ```
+  </DemoCode>
+</DemoCanvas>
+
+## Installation
+
+<InstallationTabs item="chart">
+```tsx file=../../registry/spell-ui/chart.tsx
+```
+</InstallationTabs>
+
+## Examples
+
+### Reveal effect
+
+Pass `reveal` to gray-out the line until the cursor passes over it — useful for decorative/marketing use, not for serious data viz.
+
+<DemoCanvas>
+  <DemoPreview>
+    <DemoReveal />
+  </DemoPreview>
+  <DemoCode>
+    ```tsx file=./demo-reveal.tsx
+    ```
+  </DemoCode>
+</DemoCanvas>
+
+### Custom tooltip format
+
+`formatValue` receives the value and its index, so you can pair the data with labels.
+
+<DemoCanvas>
+  <DemoPreview>
+    <DemoCustom />
+  </DemoPreview>
+  <DemoCode>
+    ```tsx file=./demo-custom.tsx
+    ```
+  </DemoCode>
+</DemoCanvas>
+
+### Custom color
+
+Pass any hex string via `color`. The line, dot, and gradient fill all derive from it.
+
+<DemoCanvas>
+  <DemoPreview>
+    <DemoColor />
+  </DemoPreview>
+  <DemoCode>
+    ```tsx file=./demo-color.tsx
+    ```
+  </DemoCode>
+</DemoCanvas>
+
+### Without animation
+
+Set `animated={false}` to make the cursor, dot, and tooltip jump to the active point instantly with no transition.
+
+<DemoCanvas>
+  <DemoPreview>
+    <DemoStatic />
+  </DemoPreview>
+  <DemoCode>
+    ```tsx file=./demo-static.tsx
+    ```
+  </DemoCode>
+</DemoCanvas>
+
+## Usage
+
+```tsx
+import { Chart } from "@/components/chart";
+```
+```tsx
+const data = [12, 18, 15, 24, 22, 30, 28, 35, 42, 38, 48, 56];
+
+<Chart data={data} />
+```
+
+The chart auto-scales the Y axis to the data range. Hover snaps to the nearest data point — like recharts.
+
+## Props
+
+<PropsTable
+  data={[
+    {
+      name: "data",
+      type: "number[]",
+      nameDetails: "Numeric values to plot — one segment per pair of consecutive points"
+    },
+    {
+      name: "labels",
+      type: "string[]",
+      nameDetails: "Optional label for each data point — shown at the top of the tooltip card"
+    },
+    {
+      name: "name",
+      type: "string",
+      nameDetails: "Series name shown next to the indicator dot in the tooltip"
+    },
+    {
+      name: "color",
+      type: "string",
+      default: "\"#0090FD\"",
+      nameDetails: "Line + dot color as a hex string. The fill gradient is derived from it"
+    },
+    {
+      name: "width",
+      type: "number",
+      default: "640",
+      nameDetails: "Maximum chart width in pixels. The chart preserves a 640:220 aspect ratio"
+    },
+    {
+      name: "formatValue",
+      type: "(value: number, index: number) => React.ReactNode",
+      default: "v => v.toLocaleString()",
+      nameDetails: "Format the tooltip badge content"
+    },
+    {
+      name: "defaultIndex",
+      type: "number",
+      default: "data.length - 1",
+      nameDetails: "Index of the active point on initial render"
+    },
+    {
+      name: "showXAxis",
+      type: "boolean",
+      default: "true",
+      nameDetails: "Show evenly-spaced tick labels along the bottom (requires `labels`)"
+    },
+    {
+      name: "tickCount",
+      type: "number",
+      default: "6",
+      nameDetails: "Target number of ticks shown on the X axis"
+    },
+    {
+      name: "reveal",
+      type: "boolean",
+      default: "false",
+      nameDetails: "Gray the line + fill until the cursor passes over them — opt-in decorative effect"
+    },
+    {
+      name: "showFill",
+      type: "boolean",
+      default: "true",
+      nameDetails: "Show the gray gradient fill under the line"
+    },
+    {
+      name: "showDot",
+      type: "boolean",
+      default: "true",
+      nameDetails: "Show the colored dot at the active data point"
+    },
+    {
+      name: "animated",
+      type: "boolean",
+      default: "true",
+      nameDetails: "Smoothly animate the cursor, dot, and tooltip when the active point changes"
+    },
+    {
+      name: "className",
+      type: "string",
+      nameDetails: "Additional CSS classes on the root container"
+    }
+  ]}
+/>

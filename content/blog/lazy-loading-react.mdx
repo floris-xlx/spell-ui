@@ -7,7 +7,7 @@ publishedOn: "2026-03-25"
 featured: false
 ---
 
-Lazy loading means deferring the download and execution of code until it's actually needed. In a [React](https://react.dev) application, this translates directly to faster initial page loads — your user downloads only the code for what they can see, not the entire application.
+Lazy loading means deferring the download and execution of code until it's actually needed. In a [React](https://react.dev) application, this translates directly to faster initial page loads — your user downloads only the code for what they can see, not the entire application. It's one of the highest-impact optimizations covered in our broader guide on [improving website loading speed](/blog/website-loading-speed).
 
 Here's how to implement it effectively.
 
@@ -66,7 +66,7 @@ function App() {
 }
 ```
 
-[Next.js](https://nextjs.org) handles this automatically. Every file in the `app/` or `pages/` directory is its own chunk — no configuration needed.
+[Next.js](https://nextjs.org) handles this automatically. Every file in the `app/` or `pages/` directory is its own chunk — no configuration needed. Code splitting is just one of the techniques in our [10 Next.js performance tips](/blog/nextjs-performance-tips) for production apps.
 
 ## Component-Level Code Splitting
 
@@ -95,7 +95,7 @@ function Header() {
 
 **Rich text editors, code editors, and chart libraries.** These can add 100-500KB to your bundle. Split them out.
 
-**Below-the-fold content.** Anything the user needs to scroll to see is a candidate.
+**Below-the-fold content.** Anything the user needs to scroll to see is a candidate. The same logic applies to media assets — see our guide on [optimizing images for web performance](/blog/image-optimization-web) for native lazy loading patterns.
 
 ## Intersection Observer Pattern
 
@@ -183,4 +183,4 @@ npx webpack-bundle-analyzer stats.json
 
 Look at the main chunk size. If it dropped significantly and page-specific chunks are now loading on demand, your splitting strategy is working. If your main chunk is still large, you have more splitting opportunities — or dependencies in shared code that are pulling in heavy modules.
 
-Start with route-based splitting, then target heavy components, and preload anything the user is likely to need next.
+Start with route-based splitting, then target heavy components, and preload anything the user is likely to need next. Track the impact in real terms by watching your [Core Web Vitals](/blog/core-web-vitals-guide) — code splitting moves LCP and INP more than almost any other change.

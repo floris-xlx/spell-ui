@@ -9,7 +9,7 @@ featured: false
 
 ## Why Build Your Own Library
 
-There comes a point where shared components stop living in a `shared/` folder and need to become a proper library. The fundamentals are the same for internal design systems and open-source projects: a clean project structure, [TypeScript](https://www.typescriptlang.org) types, a reliable build step, tests, and a publishing pipeline.
+There comes a point where shared components stop living in a `shared/` folder and need to become a proper library. The fundamentals are the same for internal design systems and open-source projects: a clean project structure, [TypeScript](https://www.typescriptlang.org) types, a reliable build step, tests, and a publishing pipeline. If you would rather skip the npm route entirely, our explainer on [what shadcn/ui is](/blog/what-is-shadcn-ui) covers the copy-paste alternative.
 
 ## Project Setup
 
@@ -137,11 +137,11 @@ const Button = forwardRef(function Button(props, ref) {
 export { Button }
 ```
 
-Always use `forwardRef`. Library consumers frequently need to attach refs for positioning, focus management, and animation libraries. Omitting it is a common mistake that forces breaking changes later.
+Always use `forwardRef`. Library consumers frequently need to attach refs for positioning, focus management, and animation libraries. Omitting it is a common mistake that forces breaking changes later. The other patterns worth internalizing here are covered in our guide to [React component best practices](/blog/react-component-best-practices).
 
 ## Testing
 
-Use Vitest with Testing Library for component tests:
+Use Vitest with Testing Library for component tests. Pair these unit tests with automated accessibility checks — our [accessible React components guide](/blog/react-accessibility-guide) covers running axe inside your test suite.
 
 ```js
 // src/components/Button/Button.test.tsx
@@ -198,6 +198,6 @@ npm publish --access public
 
 ## What Comes Next
 
-Once the foundation is solid, you can layer on additional concerns: a Storybook for visual documentation, Changesets for version management, a CI pipeline that publishes on merge to main, and CSS extraction if you want to ship styles separately.
+Once the foundation is solid, you can layer on additional concerns: a Storybook for visual documentation, Changesets for version management, a CI pipeline that publishes on merge to main, and CSS extraction if you want to ship styles separately. If your library is built around utility classes, our guide to [building a design system with Tailwind CSS](/blog/tailwind-design-system) covers how to keep tokens consistent across consumers.
 
 The key is starting simple. A well-structured library with one excellent component is worth more than a sprawling collection of poorly tested ones.

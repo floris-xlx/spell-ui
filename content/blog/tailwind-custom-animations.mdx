@@ -7,7 +7,7 @@ publishedOn: "2026-03-03"
 featured: false
 ---
 
-[Tailwind CSS](https://tailwindcss.com) ships with a handful of built-in animations — `animate-spin`, `animate-pulse`, `animate-ping`, and `animate-bounce`. They cover the basics, but real-world projects need more. Fade-ins, slide-ups, scale effects, shimmer loaders — these require custom keyframes.
+[Tailwind CSS](https://tailwindcss.com) ships with a handful of built-in animations — `animate-spin`, `animate-pulse`, `animate-ping`, and `animate-bounce`. They cover the basics, but real-world projects need more. Fade-ins, slide-ups, scale effects, shimmer loaders — these require custom keyframes. (For animations that go beyond what CSS can handle on its own, our roundup of the [best React animation libraries](/blog/best-react-animation-libraries) covers when to reach for a JS-based tool.)
 
 The good news: extending Tailwind's animation system is clean and well-supported. Here's how to do it properly.
 
@@ -95,7 +95,7 @@ Use them with Tailwind's transition utilities:
 
 ## Building a Shimmer Loading Effect
 
-Skeleton loaders with a shimmer effect are a common pattern. Here's how to build one entirely in Tailwind config:
+Skeleton loaders with a shimmer effect are a common pattern — and the same technique extends to text gradients, as covered in our [shimmer text effect with CSS guide](/blog/shimmer-text-effect-css). Here's how to build one entirely in Tailwind config:
 
 ```js
 keyframes: {
@@ -120,7 +120,7 @@ This creates a smooth, looping shimmer that looks polished and requires zero Jav
 
 ## Staggered Entrance Animations
 
-For lists or grids where items should animate in sequentially, combine `animate-slide-up` with `animation-delay` via inline styles or CSS variables:
+For lists or grids where items should animate in sequentially, combine `animate-slide-up` with `animation-delay` via inline styles or CSS variables. To trigger them as the user scrolls, pair this with the techniques in our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll):
 
 ```css
 /* Apply to each child with increasing delay */
@@ -164,7 +164,7 @@ This is one of those small additions that makes Tailwind's animation system sign
 
 ## Performance Notes
 
-A few rules to keep your animations smooth:
+A few rules to keep your animations smooth — our [web animation performance guide](/blog/web-animation-performance) digs into the rendering pipeline behind these:
 
 - **Stick to `transform` and `opacity`.** These properties are composited on the GPU and won't trigger layout recalculations.
 - **Avoid animating `width`, `height`, `top`, or `left`.** These cause reflows and will drop frames on lower-end devices.

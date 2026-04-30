@@ -9,7 +9,7 @@ featured: false
 
 [Next.js](https://nextjs.org) has become the default framework for building production [React](https://react.dev) applications, and for good reason. It handles routing, rendering, and optimization out of the box so you can focus on building your product instead of configuring webpack.
 
-This guide covers the fundamentals you need to start building with Next.js using the App Router — the modern approach introduced in Next.js 13 and refined through subsequent releases.
+This guide covers the fundamentals you need to start building with Next.js using the App Router — the modern approach introduced in Next.js 13 and refined through subsequent releases. For a deeper exploration of routing patterns, see our complete [Next.js App Router guide](/blog/nextjs-app-router-guide).
 
 ## Creating a New Project
 
@@ -70,7 +70,7 @@ export default function RootLayout({ children }) {
 }
 ```
 
-You can nest layouts. An `app/dashboard/layout.js` wraps everything under `/dashboard` while inheriting the root layout above it.
+You can nest layouts. An `app/dashboard/layout.js` wraps everything under `/dashboard` while inheriting the root layout above it. As your project grows, deciding where layouts and shared components live becomes important — our guide on [structuring a Next.js project for scale](/blog/nextjs-project-structure) covers patterns that hold up over time.
 
 ## Server Components
 
@@ -138,9 +138,9 @@ export default function Error({ error, reset }) {
 
 Once you're comfortable with routing, layouts, and the server/client component split, you'll want to explore:
 
-- **Server Actions** for handling form submissions without API routes
-- **Metadata API** for SEO (title, description, Open Graph tags)
-- **Image and Font optimization** built into `next/image` and `next/font`
+- **Server Actions** for handling form submissions without API routes — see our guide on [Next.js API routes and Server Actions](/blog/nextjs-api-routes)
+- **Metadata API** for SEO (title, description, Open Graph tags) — covered in detail in the [Next.js SEO guide](/blog/nextjs-seo-guide)
+- **Image and Font optimization** built into `next/image` and `next/font` — and the broader set of [Next.js performance tips](/blog/nextjs-performance-tips) for production apps
 - **Component libraries** like [Spell UI](https://spell.sh) for pre-built, animated components that drop into any Next.js project
 
 The best way to learn Next.js is to build something real with it. Pick a project, start with the basics above, and layer in features as you need them.

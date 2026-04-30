@@ -53,13 +53,13 @@ Radix takes a primitives-first approach. It provides unstyled, accessible compon
 
 ## [shadcn/ui](https://ui.shadcn.com)
 
-shadcn/ui is not a traditional library but a collection of copy-paste components built on Radix and [Tailwind CSS](https://tailwindcss.com). You own the source code directly.
+shadcn/ui is not a traditional library but a collection of copy-paste components built on Radix and [Tailwind CSS](https://tailwindcss.com). You own the source code directly. If you are new to the project, our deeper explainer on [what shadcn/ui actually is](/blog/what-is-shadcn-ui) walks through the philosophy in more detail.
 
 **Strengths:** Full code ownership. Tailwind-native. No dependency lock-in. Excellent defaults with clean, modern design.
 
 **Trade-offs:** No automatic updates. Requires Tailwind CSS. Smaller component set than full-featured frameworks.
 
-**Best for:** Tailwind CSS projects where code ownership and customization matter.
+**Best for:** Tailwind CSS projects where code ownership and customization matter. For a broader survey of options in this category, see our roundup of the [best Tailwind CSS component libraries](/blog/best-tailwind-component-libraries).
 
 ## [Ant Design](https://ant.design)
 
@@ -73,7 +73,7 @@ Ant Design is a full-featured design system and component library from the team 
 
 ## The Animation-Focused Category
 
-One gap in most of the frameworks above is rich, interactive animations. Libraries like [Spell UI](https://spell.sh) fill this space with components designed specifically for motion and interactivity, such as tilt cards, animated borders, and spotlight effects. Spell UI follows the same copy-paste, Tailwind-native philosophy as shadcn/ui, so it integrates cleanly alongside any of the frameworks listed here.
+One gap in most of the frameworks above is rich, interactive animations. Libraries like [Spell UI](https://spell.sh) fill this space with components designed specifically for motion and interactivity, such as tilt cards, animated borders, and spotlight effects. Spell UI follows the same copy-paste, Tailwind-native philosophy as shadcn/ui, so it integrates cleanly alongside any of the frameworks listed here. If motion is a priority for your stack, our list of the [best React animation libraries](/blog/best-react-animation-libraries) is a useful companion read.
 
 ## Making Your Decision
 
@@ -81,7 +81,7 @@ Consider these factors in order:
 
 1. **Styling approach.** If you use Tailwind CSS, shadcn/ui and its ecosystem are the natural fit. If you prefer runtime CSS-in-JS, look at Chakra or MUI.
 2. **Component coverage.** If you need data tables, date pickers, and rich text editors out of the box, MUI, Mantine, or Ant Design will save you time.
-3. **Customization depth.** If your design team demands pixel-perfect custom designs, Radix primitives or shadcn/ui give you the most control.
+3. **Customization depth.** If your design team demands pixel-perfect custom designs, Radix primitives or shadcn/ui give you the most control. Teams going this route often pair the framework choice with a [from-scratch component library](/blog/react-component-library-guide) for shared design tokens.
 4. **Team size and governance.** Larger teams may benefit from the guardrails of an opinionated framework. Smaller teams may prefer the flexibility of copy-paste approaches.
 
 There is no universal winner. The right framework is the one that fits your project's constraints, your team's preferences, and your timeline.

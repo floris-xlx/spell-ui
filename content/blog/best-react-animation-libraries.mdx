@@ -15,7 +15,7 @@ I've used most of these in production. Here's an honest breakdown of 15 librarie
 
 ### 1. Motion (formerly Framer Motion)
 
-The most popular React animation library for good reason. Declarative API, layout animations, gesture support, exit animations with `AnimatePresence`. If you're building a typical React app with route transitions and interactive components, [Motion](https://motion.dev) is the safe bet.
+The most popular React animation library for good reason. Declarative API, layout animations, gesture support, exit animations with `AnimatePresence`. If you're building a typical React app with route transitions and interactive components, [Motion](https://motion.dev) is the safe bet — our [practical guide to Motion](/blog/framer-motion-guide) covers the patterns you'll actually use day to day.
 
 **Best for:** General-purpose UI animations, page transitions, gesture-based interactions.
 
@@ -67,7 +67,7 @@ Data-driven animations built on top of D3 interpolation. Built specifically for 
 
 ### 8. [Tailwind CSS](https://tailwindcss.com) + Animate
 
-Tailwind's built-in animation utilities (`animate-spin`, `animate-pulse`, `animate-bounce`) plus custom keyframes cover a surprising amount of ground.
+Tailwind's built-in animation utilities (`animate-spin`, `animate-pulse`, `animate-bounce`) plus custom keyframes cover a surprising amount of ground — our guide on [building custom animations with Tailwind CSS](/blog/tailwind-custom-animations) walks through extending the system properly.
 
 ```css
 @keyframes fade-up {
@@ -98,7 +98,7 @@ Native CSS now supports `linear()` easing, letting you replicate spring physics 
 
 ### 10. Lenis
 
-Smooth scroll library that pairs well with any animation tool. Handles inertia scrolling and scroll-triggered effects.
+Smooth scroll library that pairs well with any animation tool. Handles inertia scrolling and scroll-triggered effects. For the native CSS counterpart, see our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll).
 
 ### 11. Locomotive Scroll
 
@@ -108,7 +108,7 @@ Smooth scrolling with built-in parallax and scroll-triggered animations. Heavier
 
 ### 12. [Three.js](https://threejs.org) / React Three Fiber
 
-3D animations and [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) effects in React. React Three Fiber gives you a declarative API over Three.js. Overkill for UI animation, essential for 3D.
+3D animations and [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) effects in React. React Three Fiber gives you a declarative API over Three.js. Overkill for UI animation, essential for 3D — our [guide to WebGL backgrounds in React](/blog/webgl-backgrounds-react) shows a practical setup.
 
 ### 13. Lottie (lottie-react)
 
@@ -137,4 +137,4 @@ Here's the decision framework I use:
 - **3D / WebGL** → React Three Fiber
 - **Designer-created animations** → Lottie or Rive
 
-Don't overcomplicate it. Most projects need one library, maybe two. Start with the simplest tool that solves your problem and upgrade when you hit its limits.
+Don't overcomplicate it. Most projects need one library, maybe two. Start with the simplest tool that solves your problem and upgrade when you hit its limits. Whatever you pick, our [web animation performance guide](/blog/web-animation-performance) covers the rendering rules that keep things at 60fps.

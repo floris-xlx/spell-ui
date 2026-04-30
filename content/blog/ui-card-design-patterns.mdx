@@ -65,7 +65,7 @@ A hover state should communicate interactivity, not just decoration. The best ho
 }
 ```
 
-Three states: resting, hover, and active. The slight lift on hover tells the user "this is clickable." The press-down on active gives tactile feedback. Keep the transition under 200ms or it feels sluggish.
+Three states: resting, hover, and active. The slight lift on hover tells the user "this is clickable." The press-down on active gives tactile feedback. Keep the transition under 200ms or it feels sluggish — this is the kind of [micro-interaction](/blog/micro-interactions-that-build-trust) that signals product quality.
 
 Avoid hover effects that change the card's size or reflow content. Border changes, padding shifts, or content reveals on hover cause layout jank in card grids.
 
@@ -73,7 +73,7 @@ Avoid hover effects that change the card's size or reflow content. Border change
 
 The hardest card design decision is how much to show. Too much content and the card becomes a wall of text. Too little and users have to click through to learn anything useful.
 
-A rule I follow: each card should answer one question. A product card answers "what is this and how much does it cost?" A blog card answers "what is this article about?" A profile card answers "who is this person?"
+A rule I follow: each card should answer one question. A product card answers "what is this and how much does it cost?" A blog card answers "what is this article about?" A profile card answers "who is this person?" The rest is noise that competes with [the visual hierarchy](/blog/visual-hierarchy-web-design) you're trying to establish.
 
 Limit cards to three to five pieces of information:
 
@@ -107,7 +107,7 @@ For cards where consistent height matters, add `grid-auto-rows: 1fr` to stretch 
 
 **Using fixed heights.** Content varies. A card with a fixed height will either clip text or leave awkward empty space. Use `min-height` if you need consistency and let content grow.
 
-**No image containment.** Images inside cards often bleed into the background when their colors are similar to the card surface. Add `outline: 1px solid rgba(0,0,0,0.1)` with `outline-offset: -1px` to images. This creates subtle visual containment without a hard border. In dark mode, swap to `rgba(255,255,255,0.1)`.
+**No image containment.** Images inside cards often bleed into the background when their colors are similar to the card surface. Add `outline: 1px solid rgba(0,0,0,0.1)` with `outline-offset: -1px` to images. This creates subtle visual containment without a hard border. In [dark mode](/blog/dark-mode-design-guide), swap to `rgba(255,255,255,0.1)`.
 
 **Inconsistent border radius.** If your card has a 12px border radius, the image inside needs a matching radius (minus the padding) or the corners won't align. Using `overflow: hidden` on the card container handles this automatically.
 
@@ -126,6 +126,6 @@ Two small CSS properties prevent common card text issues.
 
 For any numeric display that updates or appears in columns — prices, dates, counters, statistics — use `font-variant-numeric: tabular-nums`. This forces equal-width digits so numbers don't cause layout shift when they change. One caveat: some fonts like Inter change the visual appearance of numerals with this property (switching between old-style and lining figures), so test with your actual typeface before applying globally.
 
-For card titles, apply `text-wrap: balance` to distribute text evenly across lines. Without it, a two-line title might have 40 characters on the first line and 3 on the second — an orphaned word dangling alone. `balance` redistributes the text so both lines are roughly equal length, which looks far more polished in a card grid.
+For card titles, apply `text-wrap: balance` to distribute text evenly across lines. Without it, a two-line title might have 40 characters on the first line and 3 on the second — an orphaned word dangling alone. `balance` redistributes the text so both lines are roughly equal length, which looks far more polished in a card grid. (More small typographic decisions like this in our [typography guide](/blog/typography-web-design).)
 
 Cards are one of those patterns that seem trivial until you handle the edge cases. Get the structure right, keep the content focused, and test with real data that varies in length. That's where card designs actually break.

@@ -7,7 +7,7 @@ publishedOn: "2026-01-24"
 featured: false
 ---
 
-Images account for nearly half of the average page's total weight. Optimizing them is the highest-impact performance win most sites can make, and it requires no code changes.
+Images account for nearly half of the average page's total weight. Optimizing them is the highest-impact performance win most sites can make, and it requires no code changes. It also moves your [Core Web Vitals](/blog/core-web-vitals-guide) more than almost any other single change — LCP and CLS in particular.
 
 Here's how to do it properly.
 
@@ -44,6 +44,8 @@ The browser defers loading until the image is near the viewport. Two important r
 1. **Never lazy load above-the-fold images.** Your hero image, logo, and anything visible on initial load should use `loading="eager"` (or just omit the attribute — eager is the default).
 2. **Always set width and height attributes.** Without explicit dimensions, the browser can't reserve space before the image loads, causing layout shift.
 
+For deferring entire components — not just images — see our complete guide to [lazy loading in React](/blog/lazy-loading-react).
+
 ## Implement Responsive Images with srcset
 
 Serving a 2000px image to a 400px mobile screen wastes bandwidth. The `srcset` attribute lets the browser choose the right size:
@@ -70,7 +72,7 @@ import Image from "next/image";
 // <Image src="/hero.jpg" alt="Hero" width={1200} height={630} priority />
 ```
 
-It generates multiple sizes, converts to WebP/AVIF, lazy loads by default, and prevents layout shift. Use the `priority` prop for above-the-fold images to preload them.
+It generates multiple sizes, converts to WebP/AVIF, lazy loads by default, and prevents layout shift. Use the `priority` prop for above-the-fold images to preload them. The same `next/font` story exists for typography — see our guide on [web fonts and performance](/blog/web-fonts-performance) for the equivalent treatment.
 
 The `sizes` prop matters for performance. Without it, Next.js assumes the image is full-width, which may generate larger files than needed:
 
@@ -115,4 +117,4 @@ Run through this for every project:
 - Serve through a CDN with long cache TTLs
 - Preload your LCP image with `priority` or `<link rel="preload">`
 
-Most of these are set-and-forget. Spend an afternoon implementing them and your page weight drops by 40-60% with no visible quality loss.
+Most of these are set-and-forget. Spend an afternoon implementing them and your page weight drops by 40-60% with no visible quality loss. For the broader set of changes that move your speed numbers, see our guide on [improving your website's loading speed](/blog/website-loading-speed) and our [Lighthouse score guide](/blog/lighthouse-score-guide).

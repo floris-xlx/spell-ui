@@ -7,7 +7,7 @@ publishedOn: "2026-04-06"
 featured: false
 ---
 
-Building a [Next.js](https://nextjs.org) app is half the work. Getting it running in production — reliably and without surprises — is the other half. Your deployment strategy depends on your infrastructure, budget, and how much operational complexity you want to manage.
+Building a [Next.js](https://nextjs.org) app is half the work. Getting it running in production — reliably and without surprises — is the other half. If you're just starting out, our [Getting Started with Next.js guide](/blog/getting-started-nextjs) covers the basics. Your deployment strategy depends on your infrastructure, budget, and how much operational complexity you want to manage.
 
 Here are three approaches, from simplest to most hands-on.
 
@@ -34,7 +34,7 @@ AUTH_SECRET=your-secret
 NEXT_PUBLIC_API_URL=https://api.myapp.com
 ```
 
-Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser. Everything else stays server-side.
+Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser. Everything else stays server-side. For auth-related variables in particular, see our guide on [authentication in Next.js](/blog/nextjs-authentication).
 
 ### When Vercel Makes Sense
 
@@ -190,4 +190,4 @@ export const env = {
 
 **Vercel** if you want zero ops and your budget allows it. **Docker** if you need portability, run on your own infrastructure, or want consistent environments across teams. **Bare metal / VPS** if you're cost-conscious and comfortable managing a server.
 
-Start with Vercel for speed. Move to Docker when you need more control. That's the path most teams follow, and it works.
+Start with Vercel for speed. Move to Docker when you need more control. That's the path most teams follow, and it works. Once your app is live, work through our [10 Next.js performance tips](/blog/nextjs-performance-tips) and the [Next.js SEO guide](/blog/nextjs-seo-guide) so search engines and users both have a good experience.

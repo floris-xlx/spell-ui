@@ -7,7 +7,7 @@ publishedOn: "2026-02-02"
 featured: false
 ---
 
-Sidebars are a staple of dashboard layouts. They seem simple until you need to handle collapsing, mobile viewports, keyboard navigation, and persistent state. Here's a practical approach to building one that handles all of these without over-engineering.
+Sidebars are a staple of dashboard layouts. They seem simple until you need to handle collapsing, mobile viewports, keyboard navigation, and persistent state. Here's a practical approach to building one that handles all of these without over-engineering. The sidebar usually sits next to a [responsive navbar](/blog/react-navbar-tutorial), so the two patterns are worth thinking about together.
 
 ## Layout Foundation
 
@@ -115,7 +115,7 @@ React.useEffect(() => {
 }, [])
 ```
 
-Second, close the mobile drawer when pressing Escape:
+Second, close the mobile drawer when pressing Escape — the same Escape behavior every overlay should respect, including [accessible modal dialogs](/blog/react-modal-dialog):
 
 ```js
 React.useEffect(() => {
@@ -146,7 +146,7 @@ React.useEffect(() => {
 }, [collapsed])
 ```
 
-The lazy initializer in `useState` avoids a hydration mismatch if you're using server-side rendering. The state reads from `localStorage` only on the client.
+The lazy initializer in `useState` avoids a hydration mismatch if you're using server-side rendering. The state reads from `localStorage` only on the client. If you reach for this pattern often, our [React custom hooks guide](/blog/react-custom-hooks-guide) shows how to wrap it in a reusable `useLocalStorage` hook.
 
 ## Handling Active State
 
@@ -164,4 +164,4 @@ For React Router, swap in `useLocation().pathname`.
 
 ## Wrapping Up
 
-A sidebar needs four things: responsive visibility (hidden on mobile, visible on desktop), a collapsible state with smooth width transition, a mobile drawer with backdrop and Escape-to-close, and persisted user preference. Build each piece independently and compose them. The code stays manageable, and you avoid a monolithic sidebar component that tries to handle everything in one place.
+A sidebar needs four things: responsive visibility (hidden on mobile, visible on desktop), a collapsible state with smooth width transition, a mobile drawer with backdrop and Escape-to-close, and persisted user preference. Build each piece independently and compose them. The code stays manageable, and you avoid a monolithic sidebar component that tries to handle everything in one place — a recurring theme in our [React component best practices](/blog/react-component-best-practices).

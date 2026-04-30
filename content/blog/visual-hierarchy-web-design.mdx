@@ -41,13 +41,13 @@ Notice the ratios. The primary heading is 3x the body text, the secondary is 1.5
 
 One detail worth getting right early: add `-webkit-font-smoothing: antialiased` on your body element. On macOS, the default subpixel rendering makes text appear heavier than the designer intended, which throws off your weight-based hierarchy. Grayscale antialiasing produces crisper results that match what you see in Figma.
 
-For headings, use `text-wrap: balance` to distribute text evenly across lines. This prevents orphaned words sitting alone on the last line of a heading, which disrupts the visual weight of the block.
+For headings, use `text-wrap: balance` to distribute text evenly across lines. This prevents orphaned words sitting alone on the last line of a heading, which disrupts the visual weight of the block. (More on heading-level typography decisions in our [typography best practices guide](/blog/typography-web-design).)
 
 ## Color and Contrast Direct Attention
 
 A single colored element on a monochrome page will pull every eye in the room. This is the isolation effect — our brains prioritize things that break the pattern.
 
-Use this deliberately. Your primary call-to-action should be the most saturated, highest-contrast element on the screen. Secondary actions get muted colors. Tertiary actions can be text links.
+Use this deliberately. Your [primary call-to-action](/blog/landing-page-cta-best-practices) should be the most saturated, highest-contrast element on the screen. Secondary actions get muted colors. Tertiary actions can be text links. The [color theory fundamentals](/blog/color-theory-web-design) behind this — saturation, contrast ratio, accent reservation — apply to the whole page, not just the button.
 
 ```css
 .btn-primary {
@@ -94,7 +94,7 @@ This means whitespace isn't empty — it's structural. The space between a headi
 }
 ```
 
-When spacing is inconsistent, users can't tell where one group ends and another begins. They have to read to understand the structure instead of seeing it.
+When spacing is inconsistent, users can't tell where one group ends and another begins. They have to read to understand the structure instead of seeing it. Codifying these spacing values into a [design system](/blog/design-system-guide) is what keeps hierarchy consistent across an entire product.
 
 ## Typography Weight Adds Layers
 

@@ -7,7 +7,7 @@ publishedOn: "2026-02-08"
 featured: false
 ---
 
-Buttons are the most interactive element on any page, and they're usually the first component developers build when starting a project. Getting them right with [Tailwind CSS](https://tailwindcss.com) means thinking through variants, sizes, states, and edge cases upfront.
+Buttons are the most interactive element on any page, and they're usually the first component developers build when starting a project. Getting them right with [Tailwind CSS](https://tailwindcss.com) means thinking through variants, sizes, states, and edge cases upfront. (When you're ready to formalize button variants alongside the rest of your tokens, our [Tailwind design system guide](/blog/tailwind-design-system) covers how to slot this into a larger system.)
 
 Here's how to build a complete button system using nothing but Tailwind utility classes.
 
@@ -143,7 +143,7 @@ The container handles the outer radius, and each item removes its own rounding. 
 
 ## Advanced: Animated Borders and Hover Effects
 
-If you want buttons that feel more premium, animated borders and gradient hover effects add polish without heavy dependencies. This is where I draw inspiration from component libraries like [Spell UI](https://spell.sh), which offers animated border and hover components that go beyond flat color swaps.
+If you want buttons that feel more premium, animated borders and gradient hover effects add polish without heavy dependencies. Our roundup of [creative CSS hover effects for buttons](/blog/css-hover-effects-buttons) collects ten patterns you can drop in directly. This is also where I draw inspiration from component libraries like [Spell UI](https://spell.sh), which offers animated border and hover components that go beyond flat color swaps.
 
 A simple gradient hover effect using only Tailwind:
 
@@ -169,11 +169,11 @@ A simple gradient hover effect using only Tailwind:
 }
 ```
 
-This creates a light sweep effect on hover — subtle enough for professional UIs, but noticeable enough to feel intentional.
+This creates a light sweep effect on hover — subtle enough for professional UIs, but noticeable enough to feel intentional. For more advanced motion you can build in your config, see our [custom animations with Tailwind CSS guide](/blog/tailwind-custom-animations).
 
 ## Dark Mode Considerations
 
-Every variant needs dark mode treatment. The general pattern:
+Every variant needs dark mode treatment. For the underlying setup, see our [Tailwind dark mode guide](/blog/tailwind-dark-mode-guide). The general pattern:
 
 - **Primary** — Usually works as-is since the brand color is consistent across themes.
 - **Secondary** — Swap light grays for dark grays (`bg-gray-100` becomes `dark:bg-gray-800`).

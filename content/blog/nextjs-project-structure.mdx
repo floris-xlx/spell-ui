@@ -7,7 +7,7 @@ publishedOn: "2026-01-31"
 featured: true
 ---
 
-Every [Next.js](https://nextjs.org) project starts clean. Then features pile up, the components folder turns into a graveyard of single-use files, and nobody can find anything. I've refactored enough codebases to know that structure problems don't fix themselves — they compound.
+Every [Next.js](https://nextjs.org) project starts clean. Then features pile up, the components folder turns into a graveyard of single-use files, and nobody can find anything. If you're brand new to the framework, our [Getting Started with Next.js guide](/blog/getting-started-nextjs) is a good first stop. I've refactored enough codebases to know that structure problems don't fix themselves — they compound.
 
 Here's how I organize Next.js projects that stay navigable as they grow.
 
@@ -104,7 +104,7 @@ src/
 
 ### Route Groups
 
-The `(marketing)` and `(app)` parenthesized folders are route groups — they organize routes without affecting the URL. Your marketing pages get one layout, your app pages get another, and the URL stays clean.
+The `(marketing)` and `(app)` parenthesized folders are route groups — they organize routes without affecting the URL. Your marketing pages get one layout, your app pages get another, and the URL stays clean. Route groups are just one of several App Router conventions worth knowing — see our full [Next.js App Router guide](/blog/nextjs-app-router-guide).
 
 ### The `components/ui` Convention
 
@@ -154,6 +154,8 @@ Structure reinforces the server/client split. I keep a clear convention:
 - **Client components** get a `"use client"` directive and are typically interactive leaf nodes — form inputs, modals, dropdown menus.
 - **Barrel exports** (`index.ts` files) can cause accidental client bundling. Be explicit about imports.
 
+Pushing client boundaries to the leaves is also one of the highest-impact patterns in our [10 Next.js performance tips](/blog/nextjs-performance-tips) — keeping components on the server ships less JavaScript.
+
 A common pattern is wrapping a client component inside a server component that fetches its data:
 
 ```js
@@ -178,6 +180,6 @@ Consistency matters more than which convention you pick. Here's what I use:
 
 ## The Real Rule
 
-The best project structure is the one your team actually follows. Pick a pattern, document it in a `CONTRIBUTING.md`, and enforce it with linting rules. A mediocre structure followed consistently beats a perfect structure followed loosely.
+The best project structure is the one your team actually follows. Pick a pattern, document it in a `CONTRIBUTING.md`, and enforce it with linting rules. A mediocre structure followed consistently beats a perfect structure followed loosely. The same principle applies to feature subsystems — see our guides on [Next.js API routes and Server Actions](/blog/nextjs-api-routes) and [authentication in Next.js](/blog/nextjs-authentication) for opinionated layouts you can reuse.
 
 Start simple. Refactor when the pain is real, not when it's theoretical. Your future self will thank you for the discipline.

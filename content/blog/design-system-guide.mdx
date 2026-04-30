@@ -13,7 +13,7 @@ That's when you need a design system. Not a UI kit — a system. Here's how to b
 
 ## Start With Tokens, Not Components
 
-Design tokens are the atomic values your entire system is built on. Colors, spacing, typography, border radii, shadows. Define these first and everything downstream inherits consistency.
+Design tokens are the atomic values your entire system is built on. [Colors](/blog/color-theory-web-design), spacing, [typography](/blog/typography-web-design), border radii, shadows. Define these first and everything downstream inherits consistency.
 
 ```css
 :root {
@@ -51,17 +51,17 @@ Design tokens are the atomic values your entire system is built on. Colors, spac
 
 The key mistake teams make: defining tokens that are too granular or too abstract. `--color-blue-500` is useful. `--color-cta-primary-hover-bg` is overengineered. Find the middle ground.
 
-Structure your tokens in two layers. **Global tokens** define raw values (colors, sizes). **Semantic tokens** map those values to purposes (`--color-text-primary`, `--color-bg-surface`). Semantic tokens make theming possible — swap the mappings for dark mode, and every component adapts automatically.
+Structure your tokens in two layers. **Global tokens** define raw values (colors, sizes). **Semantic tokens** map those values to purposes (`--color-text-primary`, `--color-bg-surface`). Semantic tokens make theming possible — swap the mappings for [dark mode](/blog/dark-mode-design-guide), and every component adapts automatically.
 
 ## Build Components in Layers
 
 Start with the components you use most, not the flashiest ones. For most teams, that means:
 
 1. **Button** — Primary, secondary, ghost, destructive variants. Multiple sizes.
-2. **Input** — Text, select, checkbox, radio. Error and disabled states.
-3. **Card** — Container with consistent padding, radius, and shadow.
+2. **[Input](/blog/react-input-components)** — Text, select, checkbox, radio. Error and disabled states.
+3. **[Card](/blog/ui-card-design-patterns)** — Container with consistent padding, radius, and shadow.
 4. **Badge** — Status indicators and tags.
-5. **Modal / Dialog** — Overlay with focus trapping and escape handling.
+5. **[Modal / Dialog](/blog/react-modal-dialog)** — Overlay with focus trapping and escape handling.
 
 Build each component with these priorities:
 
@@ -118,6 +118,6 @@ For breaking changes, provide codemods when possible. A script that automaticall
 
 ## When to Start
 
-The common advice is "don't build a design system until you need one." I'd refine that: don't build a design system until you have at least two products sharing components, or one product large enough that different teams are building the same patterns independently.
+The common advice is "don't build a design system until you need one." I'd refine that: don't build a design system until you have at least two products sharing components, or one product large enough that different teams are building the same patterns independently. If you're working in Tailwind, our [Tailwind design system guide](/blog/tailwind-design-system) covers the implementation specifics.
 
 Start with tokens and three to five components. Get those adopted. Then grow based on demand, not speculation. A small system that's used everywhere is worth more than a complete one that sits in a repo nobody touches.

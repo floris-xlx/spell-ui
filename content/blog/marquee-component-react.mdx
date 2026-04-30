@@ -7,7 +7,7 @@ publishedOn: "2026-03-10"
 featured: false
 ---
 
-The infinite marquee — a continuous horizontal scroll of logos, testimonials, or text — is everywhere on modern landing pages. It signals social proof, adds visual motion, and fills space without demanding attention.
+The infinite marquee — a continuous horizontal scroll of logos, testimonials, or text — is everywhere on modern landing pages. It signals social proof, adds visual motion, and fills space without demanding attention. (For more on the social-proof side specifically, see our guide on [adding social proof to your landing page](/blog/landing-page-social-proof).)
 
 Building one that actually works well is trickier than it looks. Here's how to build a production-quality marquee component in [React](https://react.dev).
 
@@ -160,11 +160,11 @@ The same technique works vertically. Change `flex-direction` to `column` and ani
 
 ## Performance
 
-CSS `transform: translateX()` is GPU-composited, so the animation itself is cheap. But there are a few things to watch:
+CSS `transform: translateX()` is GPU-composited, so the animation itself is cheap — our [web animation performance guide](/blog/web-animation-performance) explains why this property choice matters. But there are a few things to watch:
 
 ### Image Loading
 
-If your marquee contains images (logos, avatars), they should be fully loaded before the animation starts. Images popping in mid-scroll looks broken.
+If your marquee contains images (logos, avatars), they should be fully loaded before the animation starts. Images popping in mid-scroll looks broken. Our [image optimization for web guide](/blog/image-optimization-web) covers how to keep those assets light enough to load before they're needed.
 
 Preload critical marquee images or use a loading state:
 
@@ -236,6 +236,6 @@ CSS `mask-image` with a gradient creates smooth transparency at both edges. This
 
 ## The Shortcut
 
-If you want a marquee without building one, [Spell UI](https://spell.sh) has a `Marquee` component that covers duplication, direction, speed control, pause on hover, edge fading, reduced motion, and vertical mode. Install it via the CLI and drop it in.
+If you want a marquee without building one, [Spell UI](https://spell.sh) has a `Marquee` component that covers duplication, direction, speed control, pause on hover, edge fading, reduced motion, and vertical mode. Install it via the CLI and drop it in. For more pre-built motion components in the same family, see our roundup of the [best React animation libraries](/blog/best-react-animation-libraries).
 
 But the build-from-scratch approach is worth understanding. The infinite scroll illusion (duplicate + translate 50%) is a pattern that shows up in carousels, tickers, and other continuous-loop animations. Once you understand the mechanics, you can adapt it to any continuous scrolling effect.

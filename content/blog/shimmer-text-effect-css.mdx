@@ -7,7 +7,7 @@ publishedOn: "2026-02-22"
 featured: false
 ---
 
-The shimmer text effect — a gradient highlight that sweeps across text — is one of those small details that can make a heading feel alive. You see it on product landing pages, pricing highlights, and hero sections. It's surprisingly simple to build with pure CSS.
+The shimmer text effect — a gradient highlight that sweeps across text — is one of those small details that can make a heading feel alive. You see it on product landing pages, pricing highlights, and hero sections. It's surprisingly simple to build with pure CSS. (For a wider tour of text animation patterns in React, see our [text animations guide](/blog/text-animation-react).)
 
 Here's how it works, step by step.
 
@@ -169,7 +169,7 @@ If you want the shimmer to play once when the element enters the viewport rather
 }
 ```
 
-Pair this with IntersectionObserver to trigger the animation on scroll.
+Pair this with IntersectionObserver to trigger the animation on scroll — our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll) walks through the full pattern.
 
 ## Dark Mode
 
@@ -201,6 +201,8 @@ The shimmer effect is lightweight. Animating `background-position` on a text ele
 - No layout or paint is triggered — just compositing
 - `background-clip: text` is well-optimized in modern browsers
 
+Our [web animation performance guide](/blog/web-animation-performance) covers why this matters and how to keep other animations on the same compositor-only path.
+
 That said, avoid applying this to large blocks of body text. It's meant for headings and short phrases.
 
 ## Browser Support
@@ -211,4 +213,4 @@ That said, avoid applying this to large blocks of body text. It's meant for head
 
 If you want this effect without writing the CSS yourself, [Spell UI](https://spell.sh) has a `ShimmerText` component that wraps this technique with configurable colors, speed, and animation direction. Install it via the CLI and drop it into your JSX.
 
-But honestly, the CSS is simple enough that building it yourself is a perfectly good option. Copy the snippet above, adjust the colors to match your brand, and you're set.
+But honestly, the CSS is simple enough that building it yourself is a perfectly good option. Copy the snippet above, adjust the colors to match your brand, and you're set. If you want to wrap it in a Tailwind-friendly utility class instead, see our guide to [building custom animations with Tailwind CSS](/blog/tailwind-custom-animations).

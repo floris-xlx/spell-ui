@@ -7,7 +7,7 @@ publishedOn: "2026-04-08"
 featured: false
 ---
 
-Performance comes from dozens of small decisions during development, not a last-minute audit. [Next.js](https://nextjs.org) handles a lot of optimization automatically, but a default Next.js app and a properly tuned one differ substantially.
+Performance comes from dozens of small decisions during development, not a last-minute audit. [Next.js](https://nextjs.org) handles a lot of optimization automatically, but a default Next.js app and a properly tuned one differ substantially. The metrics that matter most are covered in our [Core Web Vitals guide](/blog/core-web-vitals-guide) — read that first if you want to know what you're optimizing for.
 
 Here are 10 things I've seen make the biggest difference in production.
 
@@ -44,6 +44,8 @@ Key mistakes to avoid:
 - Not using `priority` on LCP images (causes layout shift)
 - Using `fill` without a sized container (image collapses)
 
+For format choices, srcset patterns, and CDN delivery beyond what `next/image` does, see our complete guide on [optimizing images for web performance](/blog/image-optimization-web).
+
 ## 2. Optimize Font Loading
 
 `next/font` preloads fonts and eliminates layout shift by using `size-adjust`. Self-hosting fonts also avoids external network requests to Google Fonts.
@@ -76,6 +78,8 @@ const myFont = localFont({
 })
 ```
 
+For font subsetting, variable fonts, and metric overrides that minimize layout shift, see our deeper dive on [web fonts and performance](/blog/web-fonts-performance).
+
 ## 3. Code Split Aggressively with Dynamic Imports
 
 Not every component needs to be in the initial bundle. Heavy components — charts, editors, maps, animation libraries — should load on demand:
@@ -94,7 +98,7 @@ const RichTextEditor = dynamic(
 )
 ```
 
-We take this approach with [Spell UI](https://spell.sh) components too — heavier animation components that depend on WebGL or complex motion libraries lazy-load by default so they don't block your initial page render. The component loads when the user scrolls to it, not when the page first loads.
+We take this approach with [Spell UI](https://spell.sh) components too — heavier animation components that depend on WebGL or complex motion libraries lazy-load by default so they don't block your initial page render. The component loads when the user scrolls to it, not when the page first loads. For the patterns behind this — including IntersectionObserver-based loading and preloading on hover — see our [complete guide to lazy loading in React](/blog/lazy-loading-react).
 
 ## 4. Use Server Components
 
@@ -272,4 +276,4 @@ Next.js already sets good cache headers for `_next/static` assets (they're conte
 
 ## The Optimization Mindset
 
-Ship less JavaScript, load things when they're needed, cache aggressively, and measure regularly. These ten tips cover most performance wins in a Next.js app.
+Ship less JavaScript, load things when they're needed, cache aggressively, and measure regularly. These ten tips cover most performance wins in a Next.js app. To validate everything once you're done, run through our [Lighthouse score guide](/blog/lighthouse-score-guide).

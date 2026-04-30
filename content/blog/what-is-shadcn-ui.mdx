@@ -9,7 +9,7 @@ featured: false
 
 ## A New Kind of Component Library
 
-If you have been building [React](https://react.dev) applications in the past couple of years, you have almost certainly encountered [shadcn/ui](https://ui.shadcn.com). It has become one of the most popular approaches to building user interfaces in the React ecosystem, yet it defies the traditional definition of a component library. Understanding what shadcn/ui actually is, and what it is not, will help you decide if it belongs in your workflow.
+If you have been building [React](https://react.dev) applications in the past couple of years, you have almost certainly encountered [shadcn/ui](https://ui.shadcn.com). It has become one of the most popular approaches to building user interfaces in the React ecosystem, yet it defies the traditional definition of a component library. Understanding what shadcn/ui actually is, and what it is not, will help you decide if it belongs in your workflow. For a side-by-side look at how it stacks up against the alternatives, see our [comparison of the top React UI frameworks](/blog/react-ui-frameworks-compared).
 
 ## The Core Philosophy: Copy and Paste, Not Install
 
@@ -40,7 +40,7 @@ The result is a component that is fully accessible out of the box, styled with T
 
 **No version lock-in.** There is no `"shadcn-ui": "^2.0.0"` in your dependencies. No breaking upgrade migrations.
 
-**Tailwind-native.** If your project already uses Tailwind CSS, shadcn/ui components feel native. No fighting between a library's theme system and your utility classes.
+**Tailwind-native.** If your project already uses Tailwind CSS, shadcn/ui components feel native. No fighting between a library's theme system and your utility classes. The same is true of the broader ecosystem — our roundup of the [best Tailwind component libraries](/blog/best-tailwind-component-libraries) covers other libraries that share this philosophy.
 
 **Lightweight.** You only include the components you actually use. No tree-shaking concerns.
 
@@ -58,7 +58,7 @@ The result is a component that is fully accessible out of the box, styled with T
 
 ## The Growing Ecosystem
 
-The copy-paste philosophy that shadcn/ui popularized has inspired a growing ecosystem of compatible libraries. [Spell UI](https://spell.sh) follows the same approach, focusing on animation-rich, interactive components that complement shadcn/ui's foundational primitives. Because both use the same architecture (Tailwind CSS, the same CLI pattern, and similar file conventions), they work together without friction.
+The copy-paste philosophy that shadcn/ui popularized has inspired a growing ecosystem of compatible libraries. [Spell UI](https://spell.sh) follows the same approach, focusing on animation-rich, interactive components that complement shadcn/ui's foundational primitives. Because both use the same architecture (Tailwind CSS, the same CLI pattern, and similar file conventions), they work together without friction. Our [getting started guide](/blog/getting-started-with-spell-ui) walks through setting up Spell UI alongside an existing shadcn/ui project.
 
 ## When to Use shadcn/ui
 
@@ -76,4 +76,4 @@ It is less ideal when:
 
 ## The Bigger Picture
 
-shadcn/ui represents a shift in how we think about shared code. Not everything needs to be an npm package. Sometimes the best abstraction is readable source code that lives in your project, fully under your control. Even if you don't adopt shadcn/ui directly, the ideas behind it are worth understanding.
+shadcn/ui represents a shift in how we think about shared code. Not everything needs to be an npm package. Sometimes the best abstraction is readable source code that lives in your project, fully under your control. Even if you don't adopt shadcn/ui directly, the ideas behind it are worth understanding — and if you eventually outgrow the copy-paste model, our guide to [building a React component library from scratch](/blog/react-component-library-guide) shows the alternative path.

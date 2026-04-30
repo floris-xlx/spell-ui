@@ -7,7 +7,7 @@ publishedOn: "2026-03-23"
 featured: false
 ---
 
-Authentication is the feature every app needs and nobody enjoys building. [Next.js](https://nextjs.org) doesn't ship with auth built in, but [Auth.js](https://authjs.dev) (formerly NextAuth.js) fills that gap well. Here's how to set it up properly with the App Router, protect routes with middleware, and handle sessions on both the server and client.
+Authentication is the feature every app needs and nobody enjoys building. [Next.js](https://nextjs.org) doesn't ship with auth built in, but [Auth.js](https://authjs.dev) (formerly NextAuth.js) fills that gap well. Here's how to set it up properly with the App Router, protect routes with middleware, and handle sessions on both the server and client. If you haven't worked with the App Router yet, our [App Router guide](/blog/nextjs-app-router-guide) is a useful primer.
 
 ## Setting Up Auth.js
 
@@ -50,6 +50,8 @@ Set up the API route handler:
 import { handlers } from "@/lib/auth"
 export const { GET, POST } = handlers
 ```
+
+If route handlers are new to you, our guide on [Next.js API routes and Server Actions](/blog/nextjs-api-routes) explains the conventions in depth.
 
 Auth.js handles OAuth flows, CSRF protection, token rotation, and session management. You bring the provider credentials.
 
@@ -211,10 +213,10 @@ if (session?.user?.role !== "admin") {
 
 ## Best Practices
 
-1. **Always use HTTPS in production.** Auth cookies over HTTP are vulnerable to interception.
+1. **Always use HTTPS in production.** Auth cookies over HTTP are vulnerable to interception. Our [Next.js deployment guide](/blog/nextjs-deployment-guide) walks through HTTPS setup on Vercel, Docker, and self-hosted environments.
 2. **Set `AUTH_SECRET` to a strong random value.** This encrypts your JWT tokens.
 3. **Use middleware for route protection,** not individual page checks.
 4. **Keep session data minimal.** Don't store large objects in the JWT.
 5. **Handle the loading state.** Users will see a flash of unauthenticated content if you don't.
 
-Getting auth right early saves you from painful refactors later. Auth.js with the App Router covers OAuth, credentials, sessions, and middleware — everything most apps need.
+Getting auth right early saves you from painful refactors later. Auth.js with the App Router covers OAuth, credentials, sessions, and middleware — everything most apps need. Where these auth files belong in your codebase is covered in our guide on [structuring a Next.js project for scale](/blog/nextjs-project-structure).

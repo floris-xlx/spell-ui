@@ -26,7 +26,7 @@ Use a very dark gray instead. Something between `#0a0a0a` and `#171717`. The dif
 }
 ```
 
-Create depth by layering progressively lighter grays. In light mode, elevation is communicated through shadows. In dark mode, elevation is communicated through surface lightness — higher elements are lighter.
+Create depth by layering progressively lighter grays. In light mode, elevation is communicated through shadows. In dark mode, elevation is communicated through surface lightness — higher elements are lighter. This is the same principle that drives [visual hierarchy on the page itself](/blog/visual-hierarchy-web-design): contrast between layers signals importance.
 
 ## Reduce Text Contrast
 
@@ -48,7 +48,7 @@ Check contrast ratios. The 0.87 opacity white on a `#0a0a0a` background gives yo
 
 ## Desaturate Your Colors
 
-Saturated colors that look great on white can overwhelm on dark surfaces. A vibrant blue button that works in light mode looks like a neon sign in dark mode.
+Saturated colors that look great on white can overwhelm on dark surfaces. A vibrant blue button that works in light mode looks like a neon sign in dark mode. (Our [color theory breakdown](/blog/color-theory-web-design) covers why saturation behaves differently against dark backgrounds.)
 
 Reduce saturation by 10–20% and increase lightness slightly for dark mode variants:
 
@@ -92,7 +92,7 @@ Strategies that work:
 
 ## Detecting User Preferences
 
-Respect the operating system preference as the default, then let users override it.
+Respect the operating system preference as the default, then let users override it. If you're on Tailwind, the [dark mode setup guide](/blog/tailwind-dark-mode-guide) walks through wiring this up cleanly.
 
 ```js
 // Check system preference
@@ -152,4 +152,4 @@ Before shipping dark mode, verify:
 - No flash of wrong theme on page load
 - A manual toggle exists and persists the user's choice
 
-Dark mode is a second design system, not a CSS trick. Treat it with the same care as your light theme, and users will actually prefer it.
+Dark mode is a second design system, not a CSS trick. Treat it with the same care as your light theme, and structure both around the same [design system foundations](/blog/design-system-guide), and users will actually prefer it.

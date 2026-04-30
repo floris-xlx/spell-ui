@@ -7,7 +7,7 @@ publishedOn: "2026-04-14"
 featured: false
 ---
 
-A few font files can add 200-500KB to your page weight and block text rendering for several seconds on slow connections. The irony: fonts are supposed to make your site look better, but slow fonts make it look broken.
+A few font files can add 200-500KB to your page weight and block text rendering for several seconds on slow connections. The irony: fonts are supposed to make your site look better, but slow fonts make it look broken — and they directly hurt your [Core Web Vitals](/blog/core-web-vitals-guide), particularly LCP and CLS.
 
 Here's how to load fonts fast without compromising your typography.
 
@@ -53,7 +53,7 @@ Font files are typically discovered late. The browser has to download HTML, pars
 
 The `crossorigin` attribute is required even for same-origin fonts — this is a quirk of the font loading spec. Omitting it causes the font to be fetched twice.
 
-Only preload 1-2 fonts. Preloading too many competes for bandwidth with other critical resources and can actually slow down your page.
+Only preload 1-2 fonts. Preloading too many competes for bandwidth with other critical resources and can actually slow down your page. The same logic applies to images — see our guide on [optimizing images for web performance](/blog/image-optimization-web) for when to preload the LCP image instead.
 
 ## Self-Hosting vs Google Fonts
 
@@ -180,7 +180,7 @@ body {
 }
 ```
 
-Next.js `next/font` calculates and applies these overrides automatically, which is one of the strongest reasons to use it.
+Next.js `next/font` calculates and applies these overrides automatically, which is one of the strongest reasons to use it. Font tuning is one of several wins covered in our [10 Next.js performance tips](/blog/nextjs-performance-tips).
 
 ## The Checklist
 
@@ -192,4 +192,4 @@ Next.js `next/font` calculates and applies these overrides automatically, which 
 - Use `next/font` if you're on Next.js
 - Apply fallback font metric overrides to minimize CLS
 
-These techniques are well-supported, well-documented, and take an afternoon to implement. There's no reason to ship a site where text is invisible for 3 seconds in 2026.
+These techniques are well-supported, well-documented, and take an afternoon to implement. There's no reason to ship a site where text is invisible for 3 seconds in 2026. For the broader playbook, see our guide to [improving website loading speed](/blog/website-loading-speed) and our [Lighthouse score guide](/blog/lighthouse-score-guide).

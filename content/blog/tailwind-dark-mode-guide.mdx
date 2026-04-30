@@ -7,7 +7,7 @@ publishedOn: "2026-01-09"
 featured: false
 ---
 
-Dark mode has gone from a nice-to-have to an expectation. Users want it, and [Tailwind CSS](https://tailwindcss.com) makes it straightforward to implement. But there are a few decisions to make early on that will save you from refactoring later.
+Dark mode has gone from a nice-to-have to an expectation. Users want it, and [Tailwind CSS](https://tailwindcss.com) makes it straightforward to implement. But there are a few decisions to make early on that will save you from refactoring later. (For the design-side perspective on what makes a dark theme actually work, see our [dark mode design best practices](/blog/dark-mode-design-guide).)
 
 This guide walks through the two strategies Tailwind offers, how to wire up a theme toggle, and how to structure your color tokens so dark mode doesn't become a maintenance headache.
 
@@ -97,7 +97,7 @@ This runs synchronously before the browser paints, eliminating the flash entirel
 
 ## Structuring Color Tokens
 
-The biggest dark mode mistake I see is scattering one-off color values throughout your markup. Instead, define semantic color tokens using CSS custom properties:
+The biggest dark mode mistake I see is scattering one-off color values throughout your markup. This is where a proper [Tailwind design system](/blog/tailwind-design-system) pays for itself — semantic color tokens defined as CSS custom properties keep both themes in sync:
 
 ```css
 :root {
@@ -138,7 +138,7 @@ module.exports = {
 }
 ```
 
-Now you write `bg-background text-foreground` once, and it works in both themes. No `dark:` prefix needed on every element. You only use `dark:` for the occasional edge case where light and dark layouts genuinely differ.
+Now you write `bg-background text-foreground` once, and it works in both themes. No `dark:` prefix needed on every element. You only use `dark:` for the occasional edge case where light and dark layouts genuinely differ. The same token approach works for typography — see our [Tailwind Typography plugin guide](/blog/tailwind-typography-plugin) for how `prose-invert` plugs into this same model.
 
 This is the approach I use at [Spell UI](https://spell.sh) for theming components, and it scales cleanly across dozens of components without the markup becoming unreadable.
 
@@ -146,7 +146,7 @@ This is the approach I use at [Spell UI](https://spell.sh) for theming component
 
 Before shipping dark mode, run through these:
 
-- **Contrast ratios** — Test text against backgrounds in both modes. WCAG AA requires at least 4.5:1 for body text.
+- **Contrast ratios** — Test text against backgrounds in both modes. WCAG AA requires at least 4.5:1 for body text. Our [color theory for web design guide](/blog/color-theory-web-design) covers how to pick palettes that meet contrast targets in both modes.
 - **Images and shadows** — Shadows that look natural on white can look harsh on dark backgrounds. Reduce opacity or switch to border-based separation.
 - **Form inputs** — Browser-default inputs often look broken in dark mode. Style them explicitly.
 - **Third-party embeds** — iframes, code embeds, and widgets may not respect your theme. Wrap them with appropriate backgrounds.

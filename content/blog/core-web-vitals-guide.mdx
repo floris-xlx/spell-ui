@@ -7,7 +7,7 @@ publishedOn: "2026-02-11"
 featured: false
 ---
 
-Core Web Vitals are Google's metrics for measuring real-world user experience. They affect search ranking, but more importantly, they measure things users actually feel — slow loads, unresponsive clicks, and janky layout shifts.
+Core Web Vitals are Google's metrics for measuring real-world user experience. They affect search ranking, but more importantly, they measure things users actually feel — slow loads, unresponsive clicks, and janky layout shifts. They also overlap heavily with what your [Lighthouse Performance score](/blog/lighthouse-score-guide) reports in the lab.
 
 Here's what each metric means, how to measure it, and how to fix it when it's bad.
 
@@ -78,6 +78,8 @@ Bad LCP almost always comes from one of four causes:
 <link rel="preload" as="image" href="/hero.webp" />
 ```
 
+For the full image story — formats, srcset, and CDN delivery — see our guide on [optimizing images for web performance](/blog/image-optimization-web). If the LCP element is text styled with a web font, our [web fonts and performance guide](/blog/web-fonts-performance) covers preloading and `font-display` strategies.
+
 **4. Client-side rendering delay.** SPAs that fetch data after hydration push LCP late. Server-render your above-the-fold content.
 
 ## Fixing INP
@@ -96,7 +98,7 @@ async function processItems(items) {
 }
 ```
 
-**Reduce JavaScript.** Audit your bundle. Remove unused dependencies, code-split aggressively, and defer non-critical scripts.
+**Reduce JavaScript.** Audit your bundle. Remove unused dependencies, code-split aggressively, and defer non-critical scripts. Our complete guide to [lazy loading in React](/blog/lazy-loading-react) shows the patterns for splitting routes and heavy components.
 
 **Avoid layout thrashing.** Reading layout properties (offsetHeight, getBoundingClientRect) then immediately writing styles forces synchronous layout. Batch your reads and writes.
 
@@ -134,4 +136,4 @@ When a Core Web Vital is failing:
 5. For INP — click around the page during recording and look for long tasks near interactions
 6. For CLS — enable the "Layout Shift Regions" rendering option to see exactly what moved
 
-Fix the biggest problem first. Core Web Vitals follow the 75th percentile, so improving your worst pages has the most impact on the overall score.
+Fix the biggest problem first. Core Web Vitals follow the 75th percentile, so improving your worst pages has the most impact on the overall score. For a step-by-step plan that ties everything together, see our guide to [improving website loading speed](/blog/website-loading-speed).

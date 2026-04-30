@@ -7,7 +7,7 @@ publishedOn: "2026-01-15"
 featured: false
 ---
 
-The navbar is usually the first component you build and the last one you get right. It needs to handle responsive layouts, scroll behavior, mobile menus, and look sharp across every breakpoint. Here's how to build one that covers all of those concerns using [React](https://react.dev) and [Tailwind CSS](https://tailwindcss.com).
+The navbar is usually the first component you build and the last one you get right. It needs to handle responsive layouts, scroll behavior, mobile menus, and look sharp across every breakpoint. Here's how to build one that covers all of those concerns using [React](https://react.dev) and [Tailwind CSS](https://tailwindcss.com). If you need a refresher on Tailwind's breakpoint system, our guide to [responsive design with Tailwind CSS](/blog/tailwind-responsive-design) has you covered.
 
 ## The Base Structure
 
@@ -94,7 +94,7 @@ Then apply the class conditionally:
 }`}>
 ```
 
-The `{ passive: true }` option on the scroll listener is important. It tells the browser you won't call `preventDefault()`, which allows it to optimize scroll performance.
+The `{ passive: true }` option on the scroll listener is important. It tells the browser you won't call `preventDefault()`, which allows it to optimize scroll performance. Scroll-driven UI changes are part of a wider pattern — see our guide to [CSS scroll-triggered animations](/blog/css-animation-on-scroll) for related techniques.
 
 ## Closing the Mobile Menu on Navigation
 
@@ -120,8 +120,10 @@ A few things to get right:
 - Make sure all links are actual `<a>` elements (or your router's link component), not `<div>`s with click handlers.
 - The mobile menu should be keyboard-navigable. Native anchor elements handle this automatically.
 
+For a deeper look at these patterns, our [accessible React components guide](/blog/react-accessibility-guide) covers focus management and ARIA in depth.
+
 ## Putting It All Together
 
 With [Spell UI](https://spell.sh), the `Navbar` component handles sticky positioning, backdrop blur, mobile drawer, and scroll detection out of the box. But if you're building from scratch, the pattern above covers the core requirements. The trick is keeping the component simple — a navbar that tries to do too much becomes a maintenance problem fast.
 
-Start with the sticky container, add responsive visibility, wire up the mobile toggle, and layer in scroll behavior last. Each piece is straightforward on its own. The complexity only comes from combining them without the code becoming tangled.
+Start with the sticky container, add responsive visibility, wire up the mobile toggle, and layer in scroll behavior last. Each piece is straightforward on its own. The complexity only comes from combining them without the code becoming tangled. The same staged approach works well for related building blocks like a [responsive sidebar](/blog/react-sidebar-tutorial) or a [dropdown menu](/blog/react-dropdown-tutorial).

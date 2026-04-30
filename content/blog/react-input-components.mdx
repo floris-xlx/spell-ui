@@ -7,7 +7,7 @@ publishedOn: "2026-04-10"
 featured: false
 ---
 
-Default HTML inputs are functional but bland. A few well-chosen enhancements -- floating labels, password toggles, validation feedback, and focus effects -- make forms easier to use without adding complexity. Here's how to build each pattern in [React](https://react.dev) with [Tailwind CSS](https://tailwindcss.com).
+Default HTML inputs are functional but bland. A few well-chosen enhancements -- floating labels, password toggles, validation feedback, and focus effects -- make forms easier to use without adding complexity. Here's how to build each pattern in [React](https://react.dev) with [Tailwind CSS](https://tailwindcss.com). For the broader visual system, see our guide to [Tailwind button styles](/blog/tailwind-button-styles), which uses many of the same focus and state patterns.
 
 ## The Base Input
 
@@ -145,7 +145,7 @@ function ValidatedInput({ label, id, error, success, ...props }) {
 }
 ```
 
-The `aria-invalid` and `aria-describedby` attributes connect the input to its error message for screen readers. Without these, users relying on assistive technology won't know why their form submission failed.
+The `aria-invalid` and `aria-describedby` attributes connect the input to its error message for screen readers. Without these, users relying on assistive technology won't know why their form submission failed. Our [accessible React components guide](/blog/react-accessibility-guide) goes deeper on ARIA patterns for forms and other widgets.
 
 ## Focus Effects
 
@@ -177,7 +177,7 @@ The highlight starts at the center (left: 50%, width: 0) and expands outward to 
 
 ## Spell UI's Input Components
 
-[Spell UI](https://spell.sh) includes two input components worth mentioning. `LabelInput` implements the floating label pattern with smooth transitions and built-in validation styling. `ExplodingInput` fires particles outward from the border on focus, adding a visible micro-interaction. Both components are built with Tailwind CSS and work with standard React form patterns like controlled components and `react-hook-form`.
+[Spell UI](https://spell.sh) includes two input components worth mentioning. `LabelInput` implements the floating label pattern with smooth transitions and built-in validation styling. `ExplodingInput` fires particles outward from the border on focus, adding a visible micro-interaction — exactly the kind of small touch covered in our piece on [micro-interactions that build trust](/blog/micro-interactions-that-build-trust). Both components are built with Tailwind CSS and work with standard React form patterns like controlled components and `react-hook-form`.
 
 ## Tips for Production
 
@@ -186,4 +186,4 @@ The highlight starts at the center (left: 50%, width: 0) and expands outward to 
 - Don't rely only on color to indicate validation state. The icon and text message together ensure the state is communicated even to users who can't perceive color differences.
 - Test with keyboard-only navigation. Tab order, focus rings, and toggle buttons should all work without a mouse.
 
-Good input components stay out of the way. They guide the user through the form, show feedback at the right moments, and otherwise remain invisible.
+Good input components stay out of the way. They guide the user through the form, show feedback at the right moments, and otherwise remain invisible. The same restraint applies to nearby UI like [toast notifications](/blog/react-toast-notification), which should confirm submissions without competing with the form itself.

@@ -7,7 +7,7 @@ publishedOn: "2026-03-15"
 featured: false
 ---
 
-Copy buttons are one of those small interactions that users notice when they're missing. Code blocks, API keys, invite links, color values -- anywhere you display text that someone might want to reuse, a copy button saves them from selecting, right-clicking, and hoping they got the whole string.
+Copy buttons are one of those small interactions that users notice when they're missing. Code blocks, API keys, invite links, color values -- anywhere you display text that someone might want to reuse, a copy button saves them from selecting, right-clicking, and hoping they got the whole string. They are a textbook example of the [micro-interactions that build trust](/blog/micro-interactions-that-build-trust) in a product.
 
 Here's how to build one properly, including the clipboard API, feedback animation, timeout management, and a fallback for browsers that don't support the modern API.
 
@@ -119,7 +119,7 @@ For a crossfade effect, animate both icons simultaneously -- the copy icon fades
 </span>
 ```
 
-Stacking both icons with `absolute inset-0` and toggling their opacity creates a smooth crossfade without layout shifts.
+Stacking both icons with `absolute inset-0` and toggling their opacity creates a smooth crossfade without layout shifts. For richer transitions on more complex components, see our roundup of the [best React animation libraries](/blog/best-react-animation-libraries).
 
 ## Fallback for Older Browsers
 
@@ -174,7 +174,7 @@ The `window.isSecureContext` check catches cases where the Clipboard API exists 
 
 ## Spell UI's Approach
 
-The [CopyButton component in Spell UI](https://spell.sh) adds a blur transition between icons. The outgoing icon blurs and fades while the incoming icon sharpens into focus, making the state change feel intentional rather than abrupt. The component handles the timeout reset and fallback internally, so you just pass a `text` prop.
+The [CopyButton component in Spell UI](https://spell.sh) adds a blur transition between icons. The outgoing icon blurs and fades while the incoming icon sharpens into focus, making the state change feel intentional rather than abrupt. The component handles the timeout reset and fallback internally, so you just pass a `text` prop. Our [getting started guide](/blog/getting-started-with-spell-ui) walks through adding it to a project.
 
 ## Extracting a Reusable Hook
 
@@ -224,4 +224,4 @@ const { copied, copy } = useCopyToClipboard()
 </button>
 ```
 
-Clean, reusable, and handles all the edge cases in one place.
+Clean, reusable, and handles all the edge cases in one place — exactly the pattern we recommend in our [practical guide to React custom hooks](/blog/react-custom-hooks-guide).

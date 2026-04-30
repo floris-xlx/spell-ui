@@ -7,7 +7,7 @@ publishedOn: "2026-03-12"
 featured: false
 ---
 
-[Motion](https://motion.dev) is the most widely used animation library in the [React](https://react.dev) ecosystem, and for good reason. It balances expressiveness and ease of use better than any other library in the space. But the docs are dense, and it's easy to miss the patterns that make it actually useful in production.
+[Motion](https://motion.dev) is the most widely used animation library in the [React](https://react.dev) ecosystem, and for good reason. It balances expressiveness and ease of use better than any other library in the space. But the docs are dense, and it's easy to miss the patterns that make it actually useful in production. (For how Motion stacks up against React Spring, GSAP, and the rest, see our roundup of the [best React animation libraries](/blog/best-react-animation-libraries).)
 
 > **Note:** Motion was formerly known as Framer Motion. The library has been renamed and now lives at [motion.dev](https://motion.dev) with the [npm package `motion`](https://www.npmjs.com/package/motion).
 
@@ -131,7 +131,7 @@ const dragConfig = {
 };
 ```
 
-`whileHover` and `whileTap` are remarkably useful. They handle the hover/active states with spring physics, which feels significantly better than [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) `:hover` transitions.
+`whileHover` and `whileTap` are remarkably useful. They handle the hover/active states with spring physics, which feels significantly better than [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) `:hover` transitions — though for simple cases, the patterns in our [creative CSS hover effects for buttons](/blog/css-hover-effects-buttons) roundup are still hard to beat.
 
 Motion provides six gesture types: `hover`, `tap`, `pan`, `drag`, `focus`, and `inView`. Each works through corresponding `while-` props (`whileHover`, `whileTap`, `whileFocus`, etc.), keeping gesture-driven animations fully declarative.
 
@@ -185,7 +185,7 @@ The practical uses for `layoutId` go beyond page transitions. Tab switches with 
 // - amount: 0.5 → trigger when 50% visible
 ```
 
-Pair `useInView` with `initial`/`animate` to trigger entrance animations on scroll without any additional library.
+Pair `useInView` with `initial`/`animate` to trigger entrance animations on scroll without any additional library. For the pure-CSS counterparts (and when to prefer them), see our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll).
 
 ## Common Patterns
 
@@ -219,7 +219,7 @@ Pair `useInView` with `initial`/`animate` to trigger entrance animations on scro
 ## Performance Tips
 
 1. **Use `layout` carefully** — it's powerful but measures the DOM on every render. Don't put it on hundreds of elements
-2. **Prefer `transform` values** (`x`, `y`, `scale`, `rotate`) over `width`, `height`, `top`, `left`
+2. **Prefer `transform` values** (`x`, `y`, `scale`, `rotate`) over `width`, `height`, `top`, `left` — our [web animation performance guide](/blog/web-animation-performance) explains why this single change is the biggest win
 3. **Use `lazy` motion components** if you're loading Motion on a page that doesn't immediately need animations — it code-splits the animation engine
 4. **Set `willChange: "transform"` on frequently animated elements** to hint GPU compositing
 5. **Avoid animating `filter`** (blur, brightness, etc.) on mobile — it's expensive
@@ -228,8 +228,8 @@ Pair `useInView` with `initial`/`animate` to trigger entrance animations on scro
 
 It's not always the right tool:
 
-- **Simple hover effects** → CSS transitions are simpler and lighter
-- **Scroll-progress animations** → CSS `scroll-timeline` or GSAP ScrollTrigger are better suited
+- **Simple hover effects** → CSS transitions are simpler and lighter (see our [CSS hover effects for buttons](/blog/css-hover-effects-buttons))
+- **Scroll-progress animations** → CSS `scroll-timeline` or GSAP ScrollTrigger are better suited (covered in our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll))
 - **Complex timeline sequences** → [GSAP](https://gsap.com)'s timeline API handles choreographed animations better
 - **Bundle size is critical** → Consider whether you need the full feature set or can get by with CSS alone
 

@@ -9,7 +9,7 @@ featured: false
 
 [React](https://react.dev) apps have historically been bad for SEO. Client-side rendering means search engine crawlers see an empty `<div id="root">` until JavaScript executes. Google's crawler handles JavaScript better than it used to, but relying on that is gambling with your search rankings.
 
-[Next.js](https://nextjs.org) solves the rendering problem. But rendering is only part of SEO. Here's everything else you need to get right.
+[Next.js](https://nextjs.org) solves the rendering problem. But rendering is only part of SEO. Here's everything else you need to get right. For a deeper, Next.js-specific tour of the same topics, see our [complete Next.js SEO guide](/blog/nextjs-seo-guide). New to the framework entirely? Start with [Getting Started with Next.js](/blog/getting-started-nextjs).
 
 ## Server Rendering is the Foundation
 
@@ -19,7 +19,7 @@ Next.js gives you three rendering strategies. For SEO, the choice matters:
 
 **Server-Side Rendering (SSR)** — HTML generated on each request. Use this for pages with frequently changing content or personalized data.
 
-**React Server Components (RSC)** — The default in the App Router. Components render on the server with zero client-side JavaScript unless you explicitly add interactivity with `"use client"`.
+**React Server Components (RSC)** — The default in the [App Router](/blog/nextjs-app-router-guide). Components render on the server with zero client-side JavaScript unless you explicitly add interactivity with `"use client"`.
 
 For most content-driven pages, static generation or server components are the right call. The key principle: your content should be in the HTML that the server sends, not injected by client-side JavaScript after load.
 
@@ -172,4 +172,4 @@ Test your cards with [opengraph.xyz](https://opengraph.xyz) or Twitter's card va
 - Set canonical URLs for pages accessible at multiple paths
 - Return proper HTTP status codes (404 for missing pages, 301 for redirects)
 
-SEO in Next.js is straightforward — it just requires covering each of these areas deliberately rather than assuming the framework handles it all.
+SEO in Next.js is straightforward — it just requires covering each of these areas deliberately rather than assuming the framework handles it all. Search ranking is also tied to performance, so pair this checklist with our [Core Web Vitals guide](/blog/core-web-vitals-guide) and the [Lighthouse score guide](/blog/lighthouse-score-guide).

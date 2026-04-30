@@ -23,7 +23,7 @@ This distinction shapes everything else.
 
 Bootstrap sites tend to look like Bootstrap sites. The default design language is strong, and overriding it requires fighting the framework's opinions. You can customize the Sass variables, but the component structure is fixed.
 
-Tailwind has no default look. Every design decision is yours. This means more work upfront, but total freedom in the output. Two Tailwind projects can look completely different because the framework imposes no visual opinion.
+Tailwind has no default look. Every design decision is yours. This means more work upfront, but total freedom in the output. Two Tailwind projects can look completely different because the framework imposes no visual opinion. (If you do want pre-built starting points, our roundup of the [best Tailwind component libraries](/blog/best-tailwind-component-libraries) covers the strongest options.)
 
 ```css
 /* Bootstrap: override the framework's opinion */
@@ -71,7 +71,7 @@ Tailwind is CSS-only. For interactive behavior, you pair it with a headless UI l
 
 ## Customization and Theming
 
-Tailwind's `tailwind.config.js` is where customization shines. You can extend the color palette, spacing scale, font stack, breakpoints, and animations in a single file. The design system is yours to define.
+Tailwind's `tailwind.config.js` is where customization shines. You can extend the color palette, spacing scale, font stack, breakpoints, and animations in a single file. The design system is yours to define — see our [Tailwind design system guide](/blog/tailwind-design-system) for how to structure tokens, semantic color layers, and component variants properly.
 
 ```js
 // tailwind.config.js
@@ -105,8 +105,8 @@ Bootstrap customization runs through Sass variables. It's capable but more rigid
 ## When to Choose Tailwind
 
 - You care about a unique visual identity and want full design control
-- You're using a component-based framework (React, Vue, Svelte, etc.)
-- Performance and bundle size matter to your project
+- You're using a component-based framework (React, Vue, Svelte, etc.) — for the React side specifically, our [React UI frameworks comparison](/blog/react-ui-frameworks-compared) covers the leading options
+- Performance and bundle size matter to your project (see our [website loading speed guide](/blog/website-loading-speed) for what actually moves the needle)
 - Your team is comfortable investing a few days in the learning curve for long-term speed
 - You want a design system that grows with your product
 

@@ -7,7 +7,7 @@ publishedOn: "2026-03-19"
 featured: false
 ---
 
-If you've ever tried to style markdown or CMS-rendered content with [Tailwind CSS](https://tailwindcss.com), you've hit the problem: Tailwind's reset strips all default browser styles. Headings, paragraphs, lists, and blockquotes all render as unstyled text.
+If you've ever tried to style markdown or CMS-rendered content with [Tailwind CSS](https://tailwindcss.com), you've hit the problem: Tailwind's reset strips all default browser styles. Headings, paragraphs, lists, and blockquotes all render as unstyled text. (For background on the typographic decisions baked into the plugin's defaults, see our [typography best practices for web design](/blog/typography-web-design).)
 
 The official Typography plugin (`@tailwindcss/typography`) solves this. It provides a set of `prose` classes that apply beautiful typographic defaults to any block of content you don't control.
 
@@ -75,7 +75,7 @@ These modifiers adjust heading colors, link colors, bold text weight, and other 
 
 ## Dark Mode Support
 
-The Typography plugin works with Tailwind's dark mode out of the box. Prefix prose modifiers with `dark:` to swap color schemes:
+The Typography plugin works with Tailwind's dark mode out of the box — see our [Tailwind dark mode setup guide](/blog/tailwind-dark-mode-guide) if you haven't wired up the `dark` class strategy yet. Prefix prose modifiers with `dark:` to swap color schemes:
 
 ```css
 /* prose prose-gray dark:prose-invert */
@@ -102,7 +102,7 @@ The plugin exposes CSS custom properties for every color it uses, making targete
 
 ## Overriding Default Styles
 
-Sometimes the prose defaults don't match your design. You can override any element's styles in the Tailwind config:
+Sometimes the prose defaults don't match your design. If you're maintaining a [Tailwind design system](/blog/tailwind-design-system), the override layer should mirror your design tokens rather than introduce new values. You can override any element's styles in the Tailwind config:
 
 ```js
 // tailwind.config.js
@@ -164,7 +164,7 @@ A few things that trip people up:
 
 - **Nested `prose` classes** can cause specificity issues. Avoid wrapping prose inside prose.
 - **Tailwind utilities inside prose** may get overridden by the plugin's styles. Use `not-prose` on child elements that should escape prose styling.
-- **Tables** are styled but not made responsive. Wrap tables in a `div` with `overflow-x-auto` for horizontal scrolling on mobile.
+- **Tables** are styled but not made responsive. Wrap tables in a `div` with `overflow-x-auto` for horizontal scrolling on mobile — see our [responsive design with Tailwind CSS guide](/blog/tailwind-responsive-design) for more patterns like this.
 - **Images** get auto margins and max-width. If you need different image layouts, wrap them in a `not-prose` container.
 
 The Typography plugin handles the 90% case for content styling. For the remaining 10%, the config overrides and `not-prose` escape hatch give you full control. It's one of those plugins that probably belongs in every Tailwind project that renders user or editorial content.

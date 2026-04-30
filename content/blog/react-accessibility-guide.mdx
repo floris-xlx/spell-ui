@@ -11,7 +11,7 @@ featured: false
 
 Accessibility is not a feature you add at the end. It is a quality of well-built software. One in four adults in the United States has a disability, and globally the numbers are similar. When your components are inaccessible, you are excluding a significant portion of your users.
 
-The good news: most accessibility work is straightforward. It comes down to using the right HTML elements, managing focus correctly, and testing with the right tools.
+The good news: most accessibility work is straightforward. It comes down to using the right HTML elements, managing focus correctly, and testing with the right tools. The principles below apply to every component you build, but they show up most visibly in interactive patterns like [accessible modal dialogs](/blog/react-modal-dialog) and [dropdown menus](/blog/react-dropdown-tutorial).
 
 ## Start with Semantic HTML
 
@@ -130,7 +130,7 @@ Notice the `tabIndex` pattern: only the active tab is in the tab order (`tabInde
 
 When UI changes in response to user action, focus must follow. Two common scenarios:
 
-**Modals.** When a modal opens, move focus to the first focusable element inside it. When it closes, return focus to the element that triggered it. Trap focus inside the modal so Tab does not escape to the content behind it.
+**Modals.** When a modal opens, move focus to the first focusable element inside it. When it closes, return focus to the element that triggered it. Trap focus inside the modal so Tab does not escape to the content behind it. Our walkthrough of [creating an accessible modal dialog in React](/blog/react-modal-dialog) implements this end to end.
 
 ```js
 function Dialog({ isOpen, onClose, children }) {
@@ -181,7 +181,7 @@ test("form has no accessibility violations", async () => {
 })
 ```
 
-For manual testing, install the axe browser extension and run it on your pages during development. Also test with a screen reader: VoiceOver on macOS (free), NVDA on Windows (free), and JAWS (paid) are the most common.
+For manual testing, install the axe browser extension and run it on your pages during development. Also test with a screen reader: VoiceOver on macOS (free), NVDA on Windows (free), and JAWS (paid) are the most common. If you ship a [component library](/blog/react-component-library-guide), wiring axe into your test suite catches regressions before they reach consumers.
 
 ## A Practical Checklist
 
@@ -193,4 +193,4 @@ For every component you build, verify these five things:
 4. Does it communicate state changes to screen readers?
 5. Does it pass automated axe checks?
 
-Accessibility is not about perfection. It is about consistent effort. Each accessible component you build makes the web better for everyone.
+Accessibility is not about perfection. It is about consistent effort. Each accessible component you build makes the web better for everyone — and small touches, like the [micro-interactions that build trust](/blog/micro-interactions-that-build-trust), often start with the same focus and feedback fundamentals covered here.

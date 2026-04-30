@@ -7,7 +7,7 @@ publishedOn: "2026-02-21"
 featured: false
 ---
 
-Dropdown menus are deceptively complex. The visible part is just a button and a list. But underneath, you need click-outside detection, keyboard navigation, focus management, and exit animations. Here's how to build one that covers all the edge cases.
+Dropdown menus are deceptively complex. The visible part is just a button and a list. But underneath, you need click-outside detection, keyboard navigation, focus management, and exit animations. Here's how to build one that covers all the edge cases. Many of the same focus and ARIA patterns apply to [accessible modal dialogs](/blog/react-modal-dialog) and other floating UI.
 
 ## Basic Toggle
 
@@ -110,7 +110,7 @@ function handleKeyDown(event) {
 }
 ```
 
-The modular arithmetic in the ArrowDown/ArrowUp handlers creates a circular navigation pattern. When the user arrows past the last item, focus wraps to the first.
+The modular arithmetic in the ArrowDown/ArrowUp handlers creates a circular navigation pattern. When the user arrows past the last item, focus wraps to the first. For the broader picture on keyboard handling and ARIA, see our [accessible React components guide](/blog/react-accessibility-guide).
 
 ## Smooth Enter and Exit Animations
 
@@ -164,7 +164,7 @@ const shouldFlip = spaceBelow < 200
 // Apply: shouldFlip ? "bottom-full mb-2" : "top-full mt-2"
 ```
 
-For more complex positioning (nested menus, scrollable containers), consider using a library like Floating UI, which handles all the geometry for you.
+For more complex positioning (nested menus, scrollable containers), consider using a library like Floating UI, which handles all the geometry for you. Several of the [React UI frameworks we compare](/blog/react-ui-frameworks-compared) build on this same primitive under the hood.
 
 ## Accessibility Checklist
 
@@ -175,4 +175,4 @@ For more complex positioning (nested menus, scrollable containers), consider usi
 - Escape closes the menu and returns focus to the trigger.
 - Clicking outside closes the menu.
 
-These aren't optional. Screen readers depend on these roles and behaviors to communicate the dropdown's purpose and state. Get them right from the start and you won't have to retrofit accessibility later.
+These aren't optional. Screen readers depend on these roles and behaviors to communicate the dropdown's purpose and state. Get them right from the start and you won't have to retrofit accessibility later. The same discipline pays off in adjacent components like a [responsive navbar](/blog/react-navbar-tutorial) where a dropdown often lives.

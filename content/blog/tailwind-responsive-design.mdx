@@ -7,7 +7,7 @@ publishedOn: "2026-04-01"
 featured: false
 ---
 
-Responsive design in [Tailwind CSS](https://tailwindcss.com) is built on a mobile-first principle. Every utility class applies at the smallest viewport by default, and breakpoint prefixes layer on changes as the screen grows. This approach is simple in concept but nuanced in practice.
+Responsive design in [Tailwind CSS](https://tailwindcss.com) is built on a mobile-first principle. Every utility class applies at the smallest viewport by default, and breakpoint prefixes layer on changes as the screen grows. This approach is simple in concept but nuanced in practice. (For a higher-level take on how breakpoints fit into a broader system, see our [Tailwind design system guide](/blog/tailwind-design-system).)
 
 Here's how to use Tailwind's responsive system effectively, including the newer container query support.
 
@@ -68,7 +68,7 @@ This gives tight gutters on mobile that widen as the viewport grows, with a maxi
 
 ## Responsive Typography
 
-Font sizes that look right on desktop are often too large for mobile, especially for headings:
+Font sizes that look right on desktop are often too large for mobile, especially for headings. The choice of scale itself is a design decision worth thinking about — see our [typography best practices for web design](/blog/typography-web-design) for the principles behind type scales:
 
 ```css
 /* Responsive heading */
@@ -78,7 +78,7 @@ Font sizes that look right on desktop are often too large for mobile, especially
 /* text-base lg:text-lg leading-relaxed */
 ```
 
-The key is that body text usually stays the same or changes by one step, while headings may scale across three or four sizes. Don't over-scale body text — `text-base` to `text-lg` is typically the maximum range.
+The key is that body text usually stays the same or changes by one step, while headings may scale across three or four sizes. Don't over-scale body text — `text-base` to `text-lg` is typically the maximum range. If you're rendering markdown or CMS content, the [Tailwind Typography plugin](/blog/tailwind-typography-plugin) handles much of this scaling for you with `prose-sm` through `prose-2xl`.
 
 ### Fluid Typography with Clamp
 
@@ -103,7 +103,7 @@ Tailwind's `hidden` utility combined with breakpoints handles responsive visibil
 /* hidden lg:flex */
 ```
 
-Avoid using visibility toggling for content that should be available to all screen sizes. If content matters, restructure it — don't just hide it on mobile.
+Avoid using visibility toggling for content that should be available to all screen sizes. If content matters, restructure it — don't just hide it on mobile. Hiding heavy elements on mobile also doesn't help performance the way people assume; for the real wins there, see our [website loading speed guide](/blog/website-loading-speed).
 
 ## Container Queries
 

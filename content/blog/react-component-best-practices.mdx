@@ -9,7 +9,7 @@ featured: false
 
 ## Why Component Architecture Matters
 
-A well-structured [React](https://react.dev) codebase is the difference between a project that scales gracefully and one that collapses under its own weight. After years of building React applications, I keep coming back to a handful of patterns that consistently produce clean, maintainable code.
+A well-structured [React](https://react.dev) codebase is the difference between a project that scales gracefully and one that collapses under its own weight. After years of building React applications, I keep coming back to a handful of patterns that consistently produce clean, maintainable code. Many of these patterns are the same ones used in production [React UI frameworks](/blog/react-ui-frameworks-compared) like Radix and shadcn/ui.
 
 ## Composition Over Configuration
 
@@ -62,7 +62,7 @@ function Dashboard({ user }) {
 
 Now `Layout` and `Sidebar` never need to know about `user`.
 
-**Custom hooks for shared logic.** When multiple components need the same data-fetching or state logic, extract it into a hook rather than threading props.
+**Custom hooks for shared logic.** When multiple components need the same data-fetching or state logic, extract it into a hook rather than threading props. Our [practical guide to React custom hooks](/blog/react-custom-hooks-guide) walks through several reusable examples.
 
 ## Custom Hooks for Separation of Concerns
 
@@ -116,7 +116,7 @@ function SettingsPanel({ userId }) {
 
 ## Keep Components Small and Focused
 
-If a component file exceeds 200 lines, it is almost certainly doing too much. Break it apart. A `CheckoutPage` should delegate to `OrderSummary`, `PaymentForm`, and `ShippingAddress`, each with its own hook if needed.
+If a component file exceeds 200 lines, it is almost certainly doing too much. Break it apart. A `CheckoutPage` should delegate to `OrderSummary`, `PaymentForm`, and `ShippingAddress`, each with its own hook if needed. Smaller components also tend to render faster — see our [React performance optimization guide](/blog/react-performance-optimization) for the measurement side of this.
 
 ## Name Props from the Consumer's Perspective
 
@@ -126,4 +126,4 @@ Props should describe what the consumer cares about, not the internal implementa
 
 For every component, ask: "Can I describe what this does in one sentence without using the word 'and'?" If the answer is no, split it. This simple heuristic catches the majority of bloated components before they become a problem.
 
-Clean React code is not about clever abstractions. It is about making the next developer (including future you) able to read, change, and extend your code with confidence.
+Clean React code is not about clever abstractions. It is about making the next developer (including future you) able to read, change, and extend your code with confidence. When these patterns get repeated across enough projects, the natural next step is packaging them up — our guide to [building a React component library from scratch](/blog/react-component-library-guide) covers what that looks like.

@@ -7,7 +7,7 @@ publishedOn: "2026-01-18"
 featured: false
 ---
 
-[WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) backgrounds are what separate a "nice landing page" from one that makes people pause and look around. That animated gradient that feels alive, those light rays that shift with the cursor, the organic noise patterns that breathe — they're all WebGL under the hood.
+[WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) backgrounds are what separate a "nice landing page" from one that makes people pause and look around. That animated gradient that feels alive, those light rays that shift with the cursor, the organic noise patterns that breathe — they're all WebGL under the hood. (For inspiration on where these effects fit, browse our roundup of [websites with great UI](/blog/websites-great-ui-inspiration).)
 
 The barrier to entry is steep if you've never worked with shaders. Here's a practical introduction to adding WebGL backgrounds in React, from basic Three.js setup to writing your first fragment shader.
 
@@ -132,12 +132,12 @@ The `smoothstep` function creates a smooth falloff from the cursor position, per
 
 ## Performance Considerations
 
-WebGL backgrounds can tank performance if you're not careful:
+WebGL backgrounds can tank performance if you're not careful — our [web animation performance guide](/blog/web-animation-performance) covers the broader rules for staying at 60fps:
 
 1. **Limit pixel ratio** — rendering at 2x or 3x DPR is expensive. Cap at 1.5 with `dpr={[1, 1.5]}` on Canvas
 2. **Reduce shader complexity** — each additional math operation runs on every pixel, every frame. On a 1920x1080 display, that's 2 million pixels at 60fps
 3. **Use `powerPreference: "low-power"`** — helps on laptops and mobile by selecting the integrated GPU
-4. **Lazy load the canvas** — don't block initial page render with shader compilation. Load Three.js asynchronously
+4. **Lazy load the canvas** — don't block initial page render with shader compilation. Load Three.js asynchronously (see our [lazy loading in React guide](/blog/lazy-loading-react) for the patterns)
 5. **Provide a CSS fallback** — for browsers without WebGL or devices where performance is poor, fall back to a CSS gradient
 
 ```css
@@ -167,7 +167,7 @@ Volumetric light beams emanating from a point, typically using radial blur in th
 
 ## The Easy Route
 
-Building custom WebGL backgrounds from scratch is rewarding but time-intensive. If you want the visual impact without the shader learning curve, there are pre-built options.
+Building custom WebGL backgrounds from scratch is rewarding but time-intensive. If you want the visual impact without the shader learning curve, there are pre-built options — our roundup of the [best React animation libraries](/blog/best-react-animation-libraries) is a good starting point.
 
 [Spell UI](https://spell.sh) includes two WebGL-powered background components:
 

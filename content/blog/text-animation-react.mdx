@@ -7,7 +7,7 @@ publishedOn: "2026-01-22"
 featured: false
 ---
 
-Text animations are the highest-ROI visual improvement you can make to a landing page. A hero heading that fades in word-by-word instantly signals polish. Static text sitting there when the page loads signals "template."
+Text animations are the highest-ROI visual improvement you can make to a landing page. A hero heading that fades in word-by-word instantly signals polish. Static text sitting there when the page loads signals "template." (For where these effects fit into the broader page, see our [hero section design best practices](/blog/hero-section-best-practices).)
 
 Here's how to implement the most common text animation patterns in [React](https://react.dev), from simple CSS to more advanced techniques.
 
@@ -126,7 +126,7 @@ The CSS-only approach has limitations: it requires fixed-width content and doesn
 
 ## 5. Gradient / Shimmer Text
 
-A gradient that moves across text creates a shimmer or highlight effect. This works by setting the background to a moving linear gradient and clipping it to the text.
+A gradient that moves across text creates a shimmer or highlight effect. This works by setting the background to a moving linear gradient and clipping it to the text — our [shimmer text effect with CSS guide](/blog/shimmer-text-effect-css) breaks down each piece of the technique.
 
 ```css
 .shimmer-text {
@@ -158,7 +158,7 @@ This is purely a CSS effect — no JavaScript needed. It works best on headings 
 
 ## 6. Scroll-Triggered Text Reveal
 
-Animate text only when it scrolls into view using [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver):
+Animate text only when it scrolls into view using [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver). Our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll) covers this pattern in more depth, including the newer `animation-timeline: view()` approach:
 
 ```js
 // Basic IntersectionObserver setup
@@ -189,7 +189,7 @@ Each is a single component you install via CLI and drop into your JSX. They hand
 
 ## Performance Checklist
 
-Whichever approach you use, keep these rules in mind:
+Whichever approach you use, keep these rules in mind — our [web animation performance guide](/blog/web-animation-performance) covers the rendering pipeline behind them:
 
 1. **Animate `transform` and `opacity` over `top`/`left`** — they're GPU-composited and won't trigger layout recalculation
 2. **Use `filter: blur()` sparingly** — it's GPU-intensive; limit to 1-3 elements at a time

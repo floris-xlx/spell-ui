@@ -13,7 +13,7 @@ Here's a practical guide to adding motion to your React landing page, from simpl
 
 ## Start With Entrance Animations
 
-The hero section is the first thing visitors see, so it's the highest-impact place to add animation. A simple fade-up entrance on the headline, subtext, and CTA creates a sense of craftsmanship that static text doesn't have.
+The [hero section](/blog/hero-section-best-practices) is the first thing visitors see, so it's the highest-impact place to add animation. A simple fade-up entrance on the headline, subtext, and CTA creates a sense of craftsmanship that static text doesn't have.
 
 The simplest approach uses pure CSS with animation delays:
 
@@ -45,7 +45,7 @@ This takes 5 minutes to implement and immediately makes the hero feel more polis
 
 ## Scroll-Triggered Reveals
 
-Elements below the fold should animate in as the user scrolls to them. This transforms a wall of content into a guided experience.
+Elements below the fold should animate in as the user scrolls to them. This transforms a wall of content into a guided experience. (For the underlying CSS techniques, see our [scroll-triggered animations guide](/blog/css-animation-on-scroll).)
 
 The browser-native way to handle this is with [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver). Here's a reusable hook:
 
@@ -110,7 +110,7 @@ For dynamic lists, set the delay via inline styles with a multiplier based on th
 
 ## Micro-Interactions
 
-Beyond entrance animations, small interactive details make the page feel alive:
+Beyond entrance animations, [small interactive details](/blog/micro-interactions-that-build-trust) make the page feel alive:
 
 **Button hover effects.** Go beyond a simple color swap. A subtle scale change, shadow shift, or border animation adds depth:
 
@@ -147,7 +147,7 @@ Beyond entrance animations, small interactive details make the page feel alive:
 
 Building all animations from scratch is educational but time-consuming. Several libraries can accelerate the process:
 
-**[Motion](https://motion.dev)** is the most popular React animation library. It provides declarative animation props, gesture handling, and layout animations. It's full-featured but adds bundle size -- roughly 30-40KB gzipped.
+**[Motion](https://motion.dev)** is the most popular React animation library. It provides declarative animation props, gesture handling, and layout animations. It's full-featured but adds bundle size — roughly 30-40KB gzipped. Our [practical Motion guide](/blog/framer-motion-guide) covers the API in depth, and there's a [broader comparison of React animation libraries](/blog/best-react-animation-libraries) if you're still picking.
 
 **[Spell UI](https://spell.sh)** offers pre-built animated components for landing pages -- text animations, card effects, gradient backgrounds. The components are copy-paste friendly and built on [Tailwind CSS](https://tailwindcss.com), so they integrate directly into your project without adding a dependency.
 
@@ -157,7 +157,7 @@ Choose based on your needs. If you want a few polished entrance animations, CSS 
 
 ## Performance Guidelines
 
-Animation that causes jank destroys the polish it's supposed to create. Follow these rules:
+Animation that causes jank destroys the polish it's supposed to create. Our [web animation performance guide](/blog/web-animation-performance) goes deeper, but the essential rules:
 
 1. **Only animate `transform` and `opacity`** — these properties are GPU-composited and won't trigger layout recalculations
 2. **Avoid animating `width`, `height`, `margin`, or `padding`** — these trigger expensive reflows

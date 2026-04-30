@@ -7,7 +7,7 @@ publishedOn: "2026-03-30"
 featured: false
 ---
 
-Typography carries more weight than any other design element. Users can forgive an ugly color palette. They won't forgive text that's hard to read. The difference between an interface that feels professional and one that feels amateur is almost always typographic.
+Typography carries more weight than any other design element. Users can forgive an ugly [color palette](/blog/color-theory-web-design). They won't forgive text that's hard to read. The difference between an interface that feels professional and one that feels amateur is almost always typographic.
 
 Here's what matters in practice.
 
@@ -45,7 +45,7 @@ The most practical scale for web interfaces uses a 1.25 ratio (Major Third):
 }
 ```
 
-You don't need to hit every step. Most interfaces use four to six sizes from this scale. The point is that the relationships between sizes feel intentional, not arbitrary.
+You don't need to hit every step. Most interfaces use four to six sizes from this scale. The point is that the relationships between sizes feel intentional, not arbitrary — a deliberate type scale is one of the strongest ways to [establish visual hierarchy](/blog/visual-hierarchy-web-design).
 
 For responsive headings, use `clamp()` to fluidly scale between mobile and desktop sizes:
 
@@ -122,7 +122,7 @@ Three distinct levels of emphasis from a single font file.
 
 ## Loading Strategy
 
-Font loading affects both performance and visual stability. A poorly loaded font causes a flash of unstyled text (FOUT) or a flash of invisible text (FOIT).
+Font loading affects both performance and visual stability. A poorly loaded font causes a flash of unstyled text (FOUT) or a flash of invisible text (FOIT). Our [web fonts performance guide](/blog/web-fonts-performance) goes deeper on the trade-offs, but the essentials are below.
 
 The best approach in 2026:
 
@@ -149,4 +149,4 @@ Run this checklist on your next project:
 - Is every font size from a consistent scale?
 - Are fonts self-hosted and using `font-display: swap`?
 
-If you answer yes to all six, your typography is in good shape. Everything else is refinement.
+If you answer yes to all six, your typography is in good shape. Everything else is refinement. If you're styling with utility classes, the [Tailwind Typography plugin](/blog/tailwind-typography-plugin) is the fastest way to apply most of these defaults to long-form content.

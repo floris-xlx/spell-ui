@@ -9,7 +9,7 @@ featured: false
 
 ## A New Mental Model
 
-[React](https://react.dev) Server Components (RSC) change where your components run, how data flows through your application, and what gets sent to the browser. Understanding the mental model behind RSC matters more than memorizing the API.
+[React](https://react.dev) Server Components (RSC) change where your components run, how data flows through your application, and what gets sent to the browser. Understanding the mental model behind RSC matters more than memorizing the API. RSC is the foundation of the [Next.js App Router](/blog/nextjs-app-router-guide), so the two concepts go hand in hand.
 
 ## Server Components vs Client Components
 
@@ -126,7 +126,7 @@ async function Dashboard() {
 }
 ```
 
-No loading spinners, no waterfall requests, no client-side caching to manage. The data is available when the component renders.
+No loading spinners, no waterfall requests, no client-side caching to manage. The data is available when the component renders. For mutations and server-side writes, see how this pairs with [Next.js API routes and server actions](/blog/nextjs-api-routes).
 
 ## Streaming with Suspense
 
@@ -164,7 +164,7 @@ Add the `"use client"` directive when your component needs:
 - Effects (`useEffect`, `useLayoutEffect`)
 - Event handlers (`onClick`, `onChange`)
 - Browser APIs (`window`, `document`, `localStorage`)
-- Custom hooks that use any of the above
+- Custom hooks that use any of the above — most of the [practical custom hooks we cover](/blog/react-custom-hooks-guide) rely on browser APIs and must live in Client Components
 - Third-party libraries that use any of the above
 
 If a component only receives props and renders JSX, it should stay as a Server Component.
@@ -178,4 +178,4 @@ You do not need to rewrite your application. Start from the leaves of your compo
 3. Move data fetching from `useEffect` in Client Components to direct fetches in Server Components above them.
 4. Wrap slow data sources in `Suspense` boundaries.
 
-Server Components are not a replacement for everything you know about React. They are a new tool for a specific class of problems: getting data from the server to the UI with less JavaScript, less latency, and less complexity.
+Server Components are not a replacement for everything you know about React. They are a new tool for a specific class of problems: getting data from the server to the UI with less JavaScript, less latency, and less complexity. For the broader optimization picture once your tree is split correctly, our [React performance optimization guide](/blog/react-performance-optimization) covers the client-side techniques that still apply.

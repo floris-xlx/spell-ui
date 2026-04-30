@@ -7,7 +7,7 @@ publishedOn: "2026-03-21"
 featured: false
 ---
 
-Smooth animation is 60 frames per second. That gives you 16.6 milliseconds per frame to do everything — run JavaScript, calculate styles, perform layout, paint pixels, and composite layers. Miss that budget and you get jank.
+Smooth animation is 60 frames per second. That gives you 16.6 milliseconds per frame to do everything — run JavaScript, calculate styles, perform layout, paint pixels, and composite layers. Miss that budget and you get jank. (Frame-budget thinking is also central to broader page performance — see our [Core Web Vitals guide](/blog/core-web-vitals-guide) for how this fits into the metrics Google measures.)
 
 Most animation jank comes from animating the wrong properties, triggering unnecessary layout recalculations, or fighting the browser's rendering pipeline instead of working with it.
 
@@ -125,7 +125,7 @@ Define consistent timing values and reuse them across your app. Create a small s
 
 ## CSS Animations vs JavaScript
 
-For simple state transitions (hover effects, enter/exit animations, loading states), CSS animations and transitions are ideal. The browser can optimize them and run them off the main thread in many cases.
+For simple state transitions (hover effects, enter/exit animations, loading states), CSS animations and transitions are ideal. The browser can optimize them and run them off the main thread in many cases. Our roundup of [creative CSS hover effects for buttons](/blog/css-hover-effects-buttons) and our guide to [building custom animations with Tailwind CSS](/blog/tailwind-custom-animations) cover the patterns that fit this category.
 
 JavaScript animations make sense when you need:
 
@@ -133,6 +133,8 @@ JavaScript animations make sense when you need:
 - Complex sequencing with precise timing control
 - Physics-based motion (spring, decay)
 - Coordination between multiple elements
+
+For a comparison of which library to reach for in each of those situations, see our roundup of the [best React animation libraries](/blog/best-react-animation-libraries) and our [practical Motion guide](/blog/framer-motion-guide).
 
 ## How Spell UI Handles This
 
@@ -147,7 +149,7 @@ Before shipping any animation:
 - Animate only `transform` and `opacity` when possible
 - Use `will-change` sparingly and only on elements that will actually animate
 - Profile in Chrome DevTools Performance panel — watch for red frames and long "Layout" blocks
-- Test on a real mid-range phone, not just your development machine
+- Test on a real mid-range phone, not just your development machine — see our [website loading speed guide](/blog/website-loading-speed) for more on real-device performance testing
 - Use `requestAnimationFrame` for all JavaScript-driven animations
 - Batch DOM reads and writes to prevent layout thrashing
 - Prefer CSS transitions for simple state changes

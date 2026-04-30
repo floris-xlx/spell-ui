@@ -7,7 +7,7 @@ publishedOn: "2026-03-14"
 featured: false
 ---
 
-Modals are one of the most misused patterns on the web. Done poorly, they trap keyboard users, break scroll behavior, and confuse screen readers. Done well, they feel like a natural extension of the page. Here's how to build one that gets the details right.
+Modals are one of the most misused patterns on the web. Done poorly, they trap keyboard users, break scroll behavior, and confuse screen readers. Done well, they feel like a natural extension of the page. Here's how to build one that gets the details right — most of the underlying ideas come from our broader guide to [building accessible React components](/blog/react-accessibility-guide).
 
 ## Portal Rendering
 
@@ -77,7 +77,7 @@ React.useEffect(() => {
 }, [isOpen, onClose])
 ```
 
-If you have nested modals (a confirmation dialog inside an edit dialog, for example), make sure only the topmost modal responds to Escape. You can use `event.stopPropagation()` or track modal depth in context.
+If you have nested modals (a confirmation dialog inside an edit dialog, for example), make sure only the topmost modal responds to Escape. You can use `event.stopPropagation()` or track modal depth in context — the same coordination pattern used by libraries described in our [React UI frameworks comparison](/blog/react-ui-frameworks-compared).
 
 ## Focus Trapping
 
@@ -189,7 +189,7 @@ A modal that appears instantly feels jarring. A subtle scale and fade works well
 }
 ```
 
-Keep the duration short. Anything over 200ms starts to feel sluggish for something users interact with frequently.
+Keep the duration short. Anything over 200ms starts to feel sluggish for something users interact with frequently. For more advanced enter and exit transitions, our [Framer Motion guide](/blog/framer-motion-guide) shows how to animate mounting and unmounting cleanly.
 
 ## The Checklist
 
@@ -204,4 +204,4 @@ Before shipping a modal:
 - Clicking the backdrop closes the modal.
 - Animations are subtle and fast.
 
-That's a lot of behavior for what looks like a simple overlay. But each piece exists because real users hit real problems without it. Build the foundation once and reuse it across every modal in your application.
+That's a lot of behavior for what looks like a simple overlay. But each piece exists because real users hit real problems without it. Build the foundation once and reuse it across every modal in your application. The same focus-management discipline applies to [dropdown menus](/blog/react-dropdown-tutorial) and other floating UI patterns.

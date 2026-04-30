@@ -7,7 +7,7 @@ publishedOn: "2026-03-28"
 featured: false
 ---
 
-A well-crafted hover effect makes a button feel intentional. A flat color swap on hover says "I used the default." These 10 CSS hover effects go beyond the basics — each one is pure CSS, production-ready, and easy to customize.
+A well-crafted hover effect makes a button feel intentional. A flat color swap on hover says "I used the default." These 10 CSS hover effects go beyond the basics — each one is pure CSS, production-ready, and easy to customize. (For the underlying button system these effects can plug into, see our [Tailwind CSS button styles guide](/blog/tailwind-button-styles).)
 
 ## 1. The 3D Push
 
@@ -351,16 +351,16 @@ This requires two text elements in the HTML — the default label and the hover 
 
 ## Usage Tips
 
-- **Keep durations between 0.15s and 0.35s** — faster feels responsive, slower feels sluggish
+- **Keep durations between 0.15s and 0.35s** — faster feels responsive, slower feels sluggish. Our [web animation performance guide](/blog/web-animation-performance) covers why these timing windows match how humans perceive interaction
 - **Always include `:active` states** — they close the feedback loop and make clicks feel physical
 - **Use `ease` or `ease-out` curves** — `linear` feels mechanical, `ease-in` feels delayed
-- **Test on touch devices** — hover effects don't work on mobile, so ensure the button still looks good without them
+- **Test on touch devices** — hover effects don't work on mobile, so ensure the button still looks good without them. Our [responsive design with Tailwind CSS guide](/blog/tailwind-responsive-design) has more on building for both input modes
 - **Don't combine too many effects** — one well-executed effect beats three mediocre ones stacked together
 
 ## Beyond Hover: Additional Techniques
 
-`clip-path` enables hold-effect buttons that reveal different icons contextually. Animate the `clip-path` value to create reveal and conceal transitions on press-and-hold — for example, a send icon that morphs into a cancel icon while the user holds the button down.
+`clip-path` enables hold-effect buttons that reveal different icons contextually. Animate the `clip-path` value to create reveal and conceal transitions on press-and-hold — for example, a send icon that morphs into a cancel icon while the user holds the button down. Subtle interactions like this are exactly what our piece on [micro-interactions that make users trust your product](/blog/micro-interactions-that-build-trust) digs into.
 
-Consider replacing borders with layered box-shadows for more depth: `box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px -1px rgba(0,0,0,0.06)`. The first layer acts as a 1px border, and the second adds a subtle lift. Shadows adapt better across different backgrounds than hard borders, which can look harsh on dark surfaces.
+Consider replacing borders with layered box-shadows for more depth: `box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.06), 0px 1px 2px -1px rgba(0,0,0,0.06)`. The first layer acts as a 1px border, and the second adds a subtle lift. Shadows adapt better across different backgrounds than hard borders, which can look harsh on dark surfaces — our [dark mode design guide](/blog/dark-mode-design-guide) covers more of these adaptation pitfalls.
 
 One thing that trips people up: optical alignment. Play icons inside circular buttons need the padding reduced on the icon's right side. Geometric center looks off because triangles carry uneven visual weight — the point "pulls" the eye right, so you nudge the icon slightly left to compensate. The same principle applies to any asymmetric icon in a symmetrical container.

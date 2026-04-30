@@ -7,7 +7,7 @@ publishedOn: "2026-03-01"
 featured: false
 ---
 
-A slow website costs you users. 53% of mobile visitors abandon a page that takes more than 3 seconds to load. Most performance problems have straightforward fixes.
+A slow website costs you users. 53% of mobile visitors abandon a page that takes more than 3 seconds to load. Most performance problems have straightforward fixes — and they map directly to the metrics in our [Core Web Vitals guide](/blog/core-web-vitals-guide).
 
 Here's a practical playbook for making your site faster.
 
@@ -59,7 +59,7 @@ const CodeEditor = lazy(() => import("./components/CodeEditor"));
 // </Suspense>
 ```
 
-The key insight: don't split everything. Splitting adds a network request. Only split components that are large (50KB+), conditionally rendered, or below the fold.
+The key insight: don't split everything. Splitting adds a network request. Only split components that are large (50KB+), conditionally rendered, or below the fold. Our complete guide to [lazy loading in React](/blog/lazy-loading-react) covers route-based and component-level patterns in more depth.
 
 ## Optimize Fonts
 
@@ -89,6 +89,8 @@ Web fonts are a common performance bottleneck. A single font family with multipl
 # Subset to Latin characters only
 pyftsubset Inter.woff2 --unicodes="U+0000-00FF" --flavor=woff2 --output-file=inter-latin.woff2
 ```
+
+For the deeper version of this — `font-display` modes, fallback metric overrides, and Next.js font optimization — see our [web fonts and performance guide](/blog/web-fonts-performance).
 
 ## Caching Strategy
 
@@ -148,6 +150,6 @@ If you're short on time, work through this list in order:
 4. Set correct cache headers on all assets
 5. Defer third-party scripts
 6. Enable Brotli compression
-7. Lazy load heavy components and below-the-fold images
+7. Lazy load heavy components and below-the-fold images — combine with our guide on [optimizing images for web performance](/blog/image-optimization-web)
 
-Each step compounds. A site that implements all of these typically loads 2-4x faster than the same site without them.
+Each step compounds. A site that implements all of these typically loads 2-4x faster than the same site without them. Validate the result by running through our [Lighthouse score guide](/blog/lighthouse-score-guide).

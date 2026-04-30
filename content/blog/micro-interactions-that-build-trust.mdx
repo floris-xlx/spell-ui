@@ -15,7 +15,7 @@ These are micro-interactions — small, often subconscious design details that s
 
 ## The Trust Gap
 
-Here's the problem I see constantly: developers ship products with great functionality but landing pages that look like they were built over a weekend. Generic hero section, static text, flat buttons, zero personality.
+Here's the problem I see constantly: developers ship products with great functionality but landing pages that look like they were built over a weekend. Generic [hero section](/blog/hero-section-best-practices), static text, flat buttons, zero personality.
 
 Users notice. Not consciously, but they feel it. A static, lifeless landing page signals "side project." A polished, responsive one signals "someone cares about this."
 
@@ -77,7 +77,7 @@ For container outlines, replace flat `1px` borders with layered box-shadows: `0p
 
 ### 3. Scroll-Triggered Reveals
 
-Elements that are already visible when you scroll to them feel like a wall of content. Elements that animate in as you reach them feel like a guided experience.
+Elements that are already visible when you scroll to them feel like a wall of content. Elements that animate in as you reach them feel like a guided experience. (Our [CSS scroll-triggered animations guide](/blog/css-animation-on-scroll) covers the implementation patterns in depth.)
 
 The trick is keeping reveals fast and consistent. 200-400ms duration, slight upward movement, maybe a touch of opacity. Anything longer feels sluggish.
 
@@ -143,7 +143,7 @@ Second, exit animations should be subtler than entrances. Use smaller movement d
 
 ## Performance Matters More Than Aesthetics
 
-A beautiful animation that causes jank is worse than no animation at all. Frame drops signal "this product is slow" louder than any static page.
+A beautiful animation that causes jank is worse than no animation at all. Frame drops signal "this product is slow" louder than any static page. (Our [web animation performance guide](/blog/web-animation-performance) digs into the GPU compositing rules behind smooth 60fps motion.)
 
 Rules:
 - Stick to `transform` and `opacity` for CSS animations (they're GPU-composited)
@@ -157,8 +157,8 @@ For complex effects (WebGL backgrounds, particle systems), lazy-load them and pr
 
 If you're a developer building a landing page this week, here's the minimum viable polish:
 
-1. **Animate your hero text in** — even a simple fade-up with stagger
-2. **Add depth to your primary CTA** — 3D push, border effect, anything beyond a flat color swap
+1. **Animate your hero text in** — even a simple fade-up with stagger ([text animation patterns for React](/blog/text-animation-react))
+2. **Add depth to your [primary CTA](/blog/landing-page-cta-best-practices)** — 3D push, border effect, anything beyond a flat color swap
 3. **Scroll-reveal your sections** — `IntersectionObserver` + CSS transitions, 10 lines of code
 4. **Add copy feedback** — checkmark animation on your install command
 5. **Subtle background treatment** — noise overlay, soft gradient, anything non-flat

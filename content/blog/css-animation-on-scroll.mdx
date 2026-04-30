@@ -7,7 +7,7 @@ publishedOn: "2026-02-09"
 featured: false
 ---
 
-Scroll-triggered animations used to require heavy JavaScript libraries. In 2026, you can do most of it with CSS alone. Between [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) for triggering, scroll-driven animations for progress-linked effects, and the new `scroll-timeline` spec, the native platform covers a lot of ground.
+Scroll-triggered animations used to require heavy JavaScript libraries. In 2026, you can do most of it with CSS alone. Between [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) for triggering, scroll-driven animations for progress-linked effects, and the new `scroll-timeline` spec, the native platform covers a lot of ground. (For the JS-driven equivalents, our roundup of the [best React animation libraries](/blog/best-react-animation-libraries) covers when libraries like GSAP or Motion are still worth reaching for.)
 
 Here's a practical guide to all three approaches.
 
@@ -181,7 +181,7 @@ Named timelines let you tie animations to specific scroll containers rather than
 
 ## Browser Support in 2026
 
-Scroll-driven animations (`animation-timeline`, `view()`, `scroll()`) are supported in Chrome, Edge, and Firefox. Safari added support in late 2024. For production apps that need to support older browsers, use IntersectionObserver as a fallback.
+Scroll-driven animations (`animation-timeline`, `view()`, `scroll()`) are supported in Chrome, Edge, and Firefox. Safari added support in late 2024. For production apps that need to support older browsers, use IntersectionObserver as a fallback — Motion's `useInView` hook offers a comparable React-friendly API, covered in our [Motion guide](/blog/framer-motion-guide).
 
 A practical progressive enhancement strategy:
 
@@ -210,13 +210,13 @@ Use `ease-out` for scroll-triggered entrances. Elements should arrive fast and d
 
 Keep reveal durations under 400ms. Slower animations make the page feel heavy, like wading through molasses. Users are scrolling to consume content, not to watch it perform. Anything above half a second and the animation becomes an obstacle rather than a guide.
 
-Rather than animating an entire card or section as one block, stagger the child elements with 80-100ms delays between them. Animate the title first, then the description, then the buttons or metadata. This creates visual rhythm — the eye follows a sequence rather than absorbing a single block. The stagger pattern in Approach 1 above supports this directly with the `--i` custom property.
+Rather than animating an entire card or section as one block, stagger the child elements with 80-100ms delays between them. Animate the title first, then the description, then the buttons or metadata. This creates visual rhythm — the eye follows a sequence rather than absorbing a single block. The stagger pattern in Approach 1 above supports this directly with the `--i` custom property, and our [text animation in React guide](/blog/text-animation-react) shows how to extend this idea word by word.
 
 One last technique borrowed from traditional animation: follow-through. Let elements slightly overshoot their final position, then settle back. A spring easing curve — or even a simple `cubic-bezier(0.34, 1.56, 0.64, 1)` — adds that subtle bounce. The overshoot should be small, maybe 4-6px past the resting point. This adds a sense of life without making the interface feel chaotic or imprecise.
 
 ## Performance Tips
 
-1. **Stick to `transform` and `opacity`** — these are composited by the GPU and won't trigger layout or paint
+1. **Stick to `transform` and `opacity`** — these are composited by the GPU and won't trigger layout or paint. Our [web animation performance guide](/blog/web-animation-performance) digs into the rendering pipeline behind this rule
 2. **Avoid animating `width`, `height`, `top`, `left`** — they trigger expensive layout recalculations on every frame
 3. **Use `will-change` intentionally** — add it before the animation starts, remove it after. Don't leave it on permanently
 4. **Limit simultaneous animations** — animating 50 elements at once will drop frames on mobile. Stagger them or animate only what's visible

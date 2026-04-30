@@ -7,7 +7,7 @@ publishedOn: "2026-02-20"
 featured: false
 ---
 
-[Next.js](https://nextjs.org) gives you two ways to run server-side logic: Route Handlers (the successor to API routes) and Server Actions. They solve different problems, and knowing when to use each will save you from writing unnecessary code.
+[Next.js](https://nextjs.org) gives you two ways to run server-side logic: Route Handlers (the successor to API routes) and Server Actions. They solve different problems, and knowing when to use each will save you from writing unnecessary code. Both are App Router features — if you're new to it, start with our [Next.js App Router guide](/blog/nextjs-app-router-guide) for the bigger picture.
 
 ## Route Handlers
 
@@ -62,6 +62,7 @@ export async function DELETE(request, { params }) {
 - Webhook endpoints ([Stripe](https://stripe.com), GitHub, etc.)
 - Endpoints that need specific HTTP methods (PUT, PATCH, DELETE)
 - Integration with third-party services that post data to your server
+- Auth provider callbacks — see our guide on [authentication in Next.js](/blog/nextjs-authentication) for a complete setup
 
 ## Server Actions
 
@@ -210,7 +211,7 @@ Use this decision framework:
 | Third-party integrations | Route Handlers |
 | CRUD from your own UI | Server Actions |
 
-Server Actions cut boilerplate. Instead of creating an API route, writing a fetch call, handling the response, and managing loading state, you define a function and call it. For internal mutations, they're almost always the better choice.
+Server Actions cut boilerplate. Instead of creating an API route, writing a fetch call, handling the response, and managing loading state, you define a function and call it. For internal mutations, they're almost always the better choice. Where these files live matters too — our piece on [structuring a Next.js project for scale](/blog/nextjs-project-structure) shows good conventions for organizing actions and route handlers.
 
 Route Handlers are still the right choice for proper HTTP endpoints — webhooks, public APIs, or endpoints consumed by mobile apps.
 
@@ -241,4 +242,4 @@ export async function OPTIONS() {
 }
 ```
 
-Pick the right tool for the job. Server Actions for your own UI mutations. Route Handlers for everything else. Both run on the server, both have full access to your backend — the difference is in how they're invoked and who consumes them.
+Pick the right tool for the job. Server Actions for your own UI mutations. Route Handlers for everything else. Both run on the server, both have full access to your backend — the difference is in how they're invoked and who consumes them. When you're ready to ship, see our [Next.js deployment guide](/blog/nextjs-deployment-guide) for getting these endpoints into production.

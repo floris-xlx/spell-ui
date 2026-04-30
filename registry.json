@@ -5,6 +5,21 @@
   "author": "tom (https://spell.sh)",
   "items": [
     {
+      "name": "chart",
+      "type": "registry:component",
+      "title": "Chart",
+      "description": "Decorative line chart with a cursor-tracked tooltip badge, motion-path dot, and animated NumberFlow value.",
+      "files": [
+        {
+          "path": "registry/spell-ui/chart.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "category": "display"
+    },
+    {
       "name": "blur-reveal",
       "type": "registry:component",
       "title": "Blur Reveal",

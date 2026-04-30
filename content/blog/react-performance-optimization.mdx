@@ -9,7 +9,7 @@ featured: false
 
 ## Measure Before You Optimize
 
-The single most important performance advice: do not optimize blindly. [React](https://react.dev) is fast by default. Most perceived performance problems come from a handful of specific patterns, and fixing the wrong thing wastes time while the real bottleneck persists.
+The single most important performance advice: do not optimize blindly. [React](https://react.dev) is fast by default. Most perceived performance problems come from a handful of specific patterns, and fixing the wrong thing wastes time while the real bottleneck persists. If you are optimizing a production app, pair this guide with our [Core Web Vitals guide](/blog/core-web-vitals-guide) to make sure you are measuring the metrics that actually matter.
 
 Start with React DevTools Profiler. Record an interaction, identify which components re-render and how long they take. If a re-render takes under 16ms, it is not your problem. Focus your effort where the profiler shows real cost.
 
@@ -150,7 +150,7 @@ function App() {
 }
 ```
 
-The `SettingsPanel` code is only downloaded when the user clicks the button. For large applications, this can reduce the initial bundle by 30-50%.
+The `SettingsPanel` code is only downloaded when the user clicks the button. For large applications, this can reduce the initial bundle by 30-50%. For a deeper look at this technique, see our complete guide to [lazy loading and code splitting in React](/blog/lazy-loading-react).
 
 ## Quick Wins
 
@@ -159,6 +159,6 @@ A few patterns that yield immediate improvement with minimal effort:
 - **Move state down.** If only one section of the page needs a piece of state, move that state into the section component. The rest of the page stops re-rendering.
 - **Avoid object literals in JSX.** `style={{ color: "red" }}` creates a new object every render. Extract it to a constant or use a CSS class.
 - **Use keys correctly.** Never use array index as a key for lists that can be reordered. Incorrect keys cause unnecessary DOM mutations.
-- **Debounce rapid updates.** Typing in a search field should not trigger a re-render on every keystroke. Debounce the state update.
+- **Debounce rapid updates.** Typing in a search field should not trigger a re-render on every keystroke. Debounce the state update — a small `useDebounce` helper from our [practical guide to React custom hooks](/blog/react-custom-hooks-guide) handles this in a few lines.
 
-Performance optimization in React is not about applying every technique everywhere. It is about understanding your specific bottlenecks and applying the right tool to each one.
+Performance optimization in React is not about applying every technique everywhere. It is about understanding your specific bottlenecks and applying the right tool to each one. If you are running on the App Router, our [Next.js performance tips](/blog/nextjs-performance-tips) cover the framework-level concerns that sit above these techniques.

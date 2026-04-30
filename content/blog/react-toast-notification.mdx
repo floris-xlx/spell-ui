@@ -7,7 +7,7 @@ publishedOn: "2026-04-03"
 featured: false
 ---
 
-Toast notifications seem like a small feature until you realize they need queue management, auto-dismiss timers, enter and exit animations, stacking logic, and accessibility support. Here's how to build a toast system that handles all of those concerns cleanly.
+Toast notifications seem like a small feature until you realize they need queue management, auto-dismiss timers, enter and exit animations, stacking logic, and accessibility support. Here's how to build a toast system that handles all of those concerns cleanly. The patterns here build on the same accessibility fundamentals covered in our [accessible React components guide](/blog/react-accessibility-guide).
 
 ## The Toast Context
 
@@ -72,7 +72,7 @@ function ToastContainer({ toasts, onDismiss }) {
 }
 ```
 
-The `aria-live="polite"` attribute tells screen readers to announce new toasts without interrupting whatever the user is currently doing. This is the single most important accessibility attribute for a toast system.
+The `aria-live="polite"` attribute tells screen readers to announce new toasts without interrupting whatever the user is currently doing. This is the single most important accessibility attribute for a toast system, and it is one of the [micro-interactions that build trust](/blog/micro-interactions-that-build-trust) without users ever noticing it explicitly.
 
 ## Individual Toast with Auto-Dismiss
 
@@ -121,7 +121,7 @@ function ToastItem({ toast, onDismiss }) {
 }
 ```
 
-The `isExiting` state enables exit animations. When the dismiss timer fires, the toast first transitions to its exit state (`opacity-0 translate-x-4`), then after the animation completes (200ms), it's actually removed from the list.
+The `isExiting` state enables exit animations. When the dismiss timer fires, the toast first transitions to its exit state (`opacity-0 translate-x-4`), then after the animation completes (200ms), it's actually removed from the list. For richer motion, our roundup of the [best React animation libraries](/blog/best-react-animation-libraries) covers options like Motion that handle exit animations natively.
 
 ## Pause on Hover
 
@@ -195,4 +195,4 @@ Error toasts get a longer duration (6 seconds instead of the default 4) because 
 
 ## Putting It Together
 
-A toast system composes small, independent behaviors: context for global access, a fixed container for positioning, per-toast timers for auto-dismiss, a two-phase exit for animations, hover detection for pausing, and queue slicing for overflow. Each piece is simple. The value is in combining them into a system that handles real-world usage without surprising the user.
+A toast system composes small, independent behaviors: context for global access, a fixed container for positioning, per-toast timers for auto-dismiss, a two-phase exit for animations, hover detection for pausing, and queue slicing for overflow. Each piece is simple. The value is in combining them into a system that handles real-world usage without surprising the user — the same composition mindset we cover in [React component best practices](/blog/react-component-best-practices).

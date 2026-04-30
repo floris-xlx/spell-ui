@@ -7,7 +7,7 @@ publishedOn: "2026-03-07"
 featured: false
 ---
 
-The App Router is the biggest architectural shift in [Next.js](https://nextjs.org) history. It replaced the Pages Router's flat, page-centric model with a nested, layout-driven approach built on React Server Components. If you've been using Next.js for a while, some patterns feel unfamiliar. If you're starting fresh, you're in the right place.
+The App Router is the biggest architectural shift in [Next.js](https://nextjs.org) history. It replaced the Pages Router's flat, page-centric model with a nested, layout-driven approach built on React Server Components. If you've been using Next.js for a while, some patterns feel unfamiliar. If you're starting fresh, our [Getting Started with Next.js guide](/blog/getting-started-nextjs) covers the basics first — you're in the right place.
 
 This guide covers the core concepts and the advanced features most tutorials skip.
 
@@ -53,7 +53,7 @@ export default function Loading() {
 }
 ```
 
-This works because the App Router streams HTML using React's Suspense architecture. The layout renders immediately, the loading state shows, and the page content replaces it once data is ready. No client-side loading spinners or skeleton management required.
+This works because the App Router streams HTML using React's Suspense architecture. The layout renders immediately, the loading state shows, and the page content replaces it once data is ready. No client-side loading spinners or skeleton management required. Streaming is one of several techniques we cover in our [10 Next.js performance tips](/blog/nextjs-performance-tips) for production apps.
 
 ## Error Boundaries
 
@@ -95,7 +95,7 @@ app/
     layout.js          → app layout
 ```
 
-This lets you apply different layouts to different sections of your app without polluting the URL structure. Marketing pages get a public header and footer. App pages get a sidebar and nav bar.
+This lets you apply different layouts to different sections of your app without polluting the URL structure. Marketing pages get a public header and footer. App pages get a sidebar and nav bar. For a fuller picture of how to organize routes alongside features and shared code, see our guide on [structuring a Next.js project for scale](/blog/nextjs-project-structure).
 
 ## Parallel Routes
 
@@ -172,4 +172,4 @@ export default async function BlogPost({ params }) {
 
 The App Router is the recommended approach for all new Next.js projects. The Pages Router still works and will be supported, but new features ship exclusively in the App Router.
 
-If you're migrating an existing project, you can adopt incrementally — both routers work simultaneously. Move routes one at a time, starting with the simplest pages, and work your way up to the more complex ones.
+If you're migrating an existing project, you can adopt incrementally — both routers work simultaneously. Move routes one at a time, starting with the simplest pages, and work your way up to the more complex ones. Once you're comfortable with the routing model, our guide to [Next.js API routes and Server Actions](/blog/nextjs-api-routes) covers the server-side companion patterns.

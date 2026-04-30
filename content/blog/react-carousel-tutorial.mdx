@@ -7,7 +7,7 @@ publishedOn: "2026-01-30"
 featured: false
 ---
 
-Carousels have a complicated reputation. Some developers avoid them entirely, but they remain one of the best solutions for logo rows, testimonials, and image galleries where horizontal scrolling makes more sense than vertical stacking. The key is building one that works well on every device and doesn't fight the user.
+Carousels have a complicated reputation. Some developers avoid them entirely, but they remain one of the best solutions for logo rows, testimonials, and image galleries where horizontal scrolling makes more sense than vertical stacking. The key is building one that works well on every device and doesn't fight the user. They also pair well with other landing-page patterns covered in our [essential landing page sections](/blog/landing-page-sections) guide.
 
 ## The Core Concept
 
@@ -172,7 +172,7 @@ const maxIndex = Math.max(0, items.length - slidesPerView)
 
 ## A Note on Logo Carousels
 
-One of the most common carousel use cases is a scrolling row of partner or client logos. At [Spell UI](https://spell.sh), the `LogosCarousel` component handles this pattern with continuous scroll animation, automatic item duplication for gapless looping, and pause-on-hover built in. If you're building a logo strip specifically, a dedicated component is faster to ship than adapting a general-purpose carousel.
+One of the most common carousel use cases is a scrolling row of partner or client logos. At [Spell UI](https://spell.sh), the `LogosCarousel` component handles this pattern with continuous scroll animation, automatic item duplication for gapless looping, and pause-on-hover built in. For the underlying technique, see our walkthrough on [building an infinite marquee component in React](/blog/marquee-component-react). If you're building a logo strip specifically, a dedicated component is faster to ship than adapting a general-purpose carousel — and it works well as [social proof on a landing page](/blog/landing-page-social-proof).
 
 ## Accessibility
 
@@ -183,4 +183,4 @@ A few things to keep in mind:
 - Include `aria-label="Slide 1 of 5"` on each slide for context.
 - Autoplay should respect `prefers-reduced-motion`. Check with `window.matchMedia("(prefers-reduced-motion: reduce)")` and disable autoplay if it matches.
 
-Carousels don't have to be a usability problem. With keyboard support, touch handling, and proper ARIA attributes, they can be a clean, effective way to present horizontal content without overwhelming the page.
+Carousels don't have to be a usability problem. With keyboard support, touch handling, and proper ARIA attributes, they can be a clean, effective way to present horizontal content without overwhelming the page. Our [accessible React components guide](/blog/react-accessibility-guide) covers the keyboard and screen reader patterns in more depth.

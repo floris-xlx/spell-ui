@@ -21,7 +21,7 @@ The color wheel arranges hues in a circle. You don't need to memorize it, but yo
 
 **Split-complementary** takes one color and the two colors adjacent to its complement. This gives you contrast without the intensity of pure complementary schemes.
 
-In practice, most web interfaces use one primary hue, one neutral palette (grays), and one accent color. That's three colors, not twelve.
+In practice, most web interfaces use one primary hue, one neutral palette (grays), and one accent color. That's three colors, not twelve. Color is also one of the strongest tools you have for [building visual hierarchy](/blog/visual-hierarchy-web-design) on a page.
 
 ## Building a Palette That Works
 
@@ -53,7 +53,7 @@ Start with your primary color. Then generate a scale of that color from light to
 }
 ```
 
-Use the 500-600 range for primary actions. The 100-200 range for backgrounds and badges. The 700-900 range for text on light backgrounds.
+Use the 500-600 range for primary actions. The 100-200 range for backgrounds and badges. The 700-900 range for text on light backgrounds. These scales also become the foundation for any [design system you build later](/blog/design-system-guide).
 
 ## Contrast Ratios Are Non-Negotiable
 
@@ -69,7 +69,7 @@ Test your colors with a contrast checker before committing to them. Chrome DevTo
 
 ## Dark Mode Palettes
 
-Dark mode isn't "invert the colors." That approach produces eye-searing white text on pure black, which is harder to read than the light version.
+Dark mode isn't "invert the colors." That approach produces eye-searing white text on pure black, which is harder to read than the light version. Our [dark mode design guide](/blog/dark-mode-design-guide) covers the full set of decisions involved, but the color-specific ones are below.
 
 Good dark mode practices:
 
@@ -103,6 +103,6 @@ Good dark mode practices:
 
 ## The Shortcut
 
-If you're starting from scratch, pick one blue between `hsl(220, 80%, 50%)` and `hsl(230, 70%, 55%)`. Pair it with Tailwind's default gray scale. Add a green for success, red for errors, yellow for warnings.
+If you're starting from scratch, pick one blue between `hsl(220, 80%, 50%)` and `hsl(230, 70%, 55%)`. Pair it with Tailwind's default gray scale (we walk through this stack in our [Tailwind design system guide](/blog/tailwind-design-system)). Add a green for success, red for errors, yellow for warnings.
 
 That's a complete, functional color system. You can refine it later, but most interfaces need fewer colors than designers think. Two hues and a gray scale will carry you further than a twelve-color palette you never use consistently.

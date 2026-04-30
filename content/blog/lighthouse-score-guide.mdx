@@ -7,7 +7,7 @@ publishedOn: "2026-02-28"
 featured: false
 ---
 
-A perfect [Lighthouse](https://developer.chrome.com/docs/lighthouse) score — 100 across Performance, Accessibility, Best Practices, and SEO — is achievable on most sites. It's not a vanity metric either. Each category maps to real problems that affect real users.
+A perfect [Lighthouse](https://developer.chrome.com/docs/lighthouse) score — 100 across Performance, Accessibility, Best Practices, and SEO — is achievable on most sites. It's not a vanity metric either. Each category maps to real problems that affect real users — and the Performance score in particular tracks the same signals as your [Core Web Vitals](/blog/core-web-vitals-guide).
 
 Here's how to hit 100 in each category, with the specific fixes that matter most.
 
@@ -37,9 +37,9 @@ This is the hardest category. The key metrics are LCP, TBT (Total Blocking Time,
 <script src="/app.js" defer></script>
 ```
 
-**Optimize your LCP element.** Identify what Lighthouse flags as the LCP element (usually a hero image or heading). If it's an image, preload it and serve it in WebP/AVIF. If it's text, ensure fonts load fast with `font-display: swap`.
+**Optimize your LCP element.** Identify what Lighthouse flags as the LCP element (usually a hero image or heading). If it's an image, preload it and serve it in WebP/AVIF — see our guide on [optimizing images for web performance](/blog/image-optimization-web). If it's text, ensure fonts load fast with `font-display: swap`, covered in detail in our [web fonts and performance guide](/blog/web-fonts-performance).
 
-**Reduce JavaScript execution time.** This is the most common reason for TBT failures. The fixes: code split aggressively, remove unused dependencies, defer third-party scripts, and avoid long synchronous operations.
+**Reduce JavaScript execution time.** This is the most common reason for TBT failures. The fixes are spelled out in our broader [website loading speed playbook](/blog/website-loading-speed): code split aggressively, remove unused dependencies, defer third-party scripts, and avoid long synchronous operations.
 
 **Fix CLS.** Set explicit dimensions on images and videos. Reserve space for ad slots and dynamic content. Avoid injecting content above existing content.
 
@@ -66,7 +66,7 @@ npx @axe-core/cli https://yoursite.com
 
 **ARIA attributes.** If you use ARIA, use it correctly. `aria-hidden="true"` on focusable elements is a common mistake. Interactive elements need accessible names.
 
-**Keyboard navigation.** Every interactive element must be focusable and operable with a keyboard. Custom components need appropriate `role`, `tabindex`, and keyboard event handlers.
+**Keyboard navigation.** Every interactive element must be focusable and operable with a keyboard. Custom components need appropriate `role`, `tabindex`, and keyboard event handlers — our [accessible React components guide](/blog/react-accessibility-guide) covers the full pattern.
 
 ## Best Practices (100)
 

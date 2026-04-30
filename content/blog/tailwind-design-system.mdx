@@ -9,7 +9,7 @@ featured: false
 
 Design systems get talked about like they're only for large teams with dedicated design infrastructure. They're not. If you have more than a handful of components, you already need one — you just might not have formalized it yet.
 
-[Tailwind CSS](https://tailwindcss.com) is well-suited for design systems because it forces explicit decisions about spacing, color, and typography. The framework is the design token layer. Here's how to structure it properly.
+[Tailwind CSS](https://tailwindcss.com) is well-suited for design systems because it forces explicit decisions about spacing, color, and typography. The framework is the design token layer. Here's how to structure it properly. (For the broader, framework-agnostic version of this discussion, see our [step-by-step guide to building a design system from scratch](/blog/design-system-guide).)
 
 ## Start with Design Tokens
 
@@ -109,7 +109,7 @@ These semantic tokens decouple your components from specific color values. When 
 
 A common mistake is treating Tailwind components as raw utility strings. At scale, you need abstraction. Define consistent patterns for common components.
 
-For a button system, establish the variants upfront:
+For a button system, establish the variants upfront — our [Tailwind button styles guide](/blog/tailwind-button-styles) goes deeper on building out a complete variant set:
 
 ```css
 /* Base button styles */
@@ -150,7 +150,7 @@ Write these down. When a developer asks "how much space between a title and a de
 
 ## Theming Strategy
 
-If you need multiple themes (light/dark, brand variants), CSS custom properties are the cleanest approach with Tailwind:
+If you need multiple themes (light/dark, brand variants), CSS custom properties are the cleanest approach with Tailwind — our [Tailwind dark mode setup guide](/blog/tailwind-dark-mode-guide) walks through this exact pattern in detail:
 
 ```js
 // tailwind.config.js
@@ -176,7 +176,7 @@ This approach scales to any number of themes without multiplying your Tailwind c
 
 ## Documentation Is Not Optional
 
-A design system without documentation is a folder of components. You need to document:
+A design system without documentation is a folder of components — and the components themselves benefit from solid [typography fundamentals](/blog/typography-web-design) and a thoughtful [color palette](/blog/color-theory-web-design). You need to document:
 
 - **Token values** — What colors, spacing, and typography scales exist
 - **Component API** — What variants, sizes, and props each component supports

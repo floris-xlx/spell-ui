@@ -7,11 +7,11 @@ publishedOn: "2026-02-18"
 featured: false
 ---
 
-[Next.js](https://nextjs.org) gives you more SEO control out of the box than any other [React](https://react.dev) framework. The problem is that most of the features are buried in the docs. Here's everything you need to implement proper SEO in a Next.js project, with code you can copy directly.
+[Next.js](https://nextjs.org) gives you more SEO control out of the box than any other [React](https://react.dev) framework. The problem is that most of the features are buried in the docs. Here's everything you need to implement proper SEO in a Next.js project, with code you can copy directly. For a broader take that compares React-only SEO to Next.js, see our [SEO for React and Next.js checklist](/blog/seo-react-nextjs).
 
 ## The Metadata API
 
-The App Router replaced the old `Head` component with a dedicated Metadata API. You export a `metadata` object or a `generateMetadata` function from any page or layout.
+The App Router replaced the old `Head` component with a dedicated Metadata API. You export a `metadata` object or a `generateMetadata` function from any page or layout. If the App Router itself is new to you, our [Next.js App Router guide](/blog/nextjs-app-router-guide) walks through the broader conventions.
 
 ### Static Metadata
 
@@ -232,4 +232,4 @@ Before shipping, verify these:
 7. Images have `alt` text (Next.js `Image` component enforces this)
 8. Pages are server-rendered — client-only content won't be indexed
 
-SEO in Next.js is a checklist. Run through it once, automate what you can with `generateMetadata`, and you'll outrank 90% of React apps.
+SEO in Next.js is a checklist. Run through it once, automate what you can with `generateMetadata`, and you'll outrank 90% of React apps. Search ranking also depends on speed, so pair this guide with our [Core Web Vitals guide](/blog/core-web-vitals-guide) and our [10 Next.js performance tips](/blog/nextjs-performance-tips).
