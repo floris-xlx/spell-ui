@@ -2,7 +2,6 @@
 
 import { Chart } from "@/registry/spell-ui/chart";
 
-// Real AAPL daily closes (Yahoo Finance), May 2024 → Apr 2026
 const data = [
   183.05, 186.28, 187.43, 189.72, 189.84, 189.87, 191.04, 192.35, 190.9,
   186.88, 189.98, 189.99, 190.29, 191.29, 192.25, 194.03, 194.35, 195.87,

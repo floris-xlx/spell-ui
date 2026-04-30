@@ -2,7 +2,6 @@
 
 import { Chart } from "@/registry/spell-ui/chart";
 
-// Real BTC/USD daily closes (Yahoo Finance), May 2025 → Apr 2026
 const data = [
   96492, 96910, 95892, 94316, 94748, 96802, 97032, 103241, 102971, 104696,
   104106, 102813, 104170, 103539, 103745, 103489, 103191, 106446, 105606,

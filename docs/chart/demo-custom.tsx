@@ -2,7 +2,6 @@
 
 import { Chart } from "@/registry/spell-ui/chart";
 
-// Real ETH/USD weekly closes (Yahoo Finance), May 2024 → Apr 2026
 const data = [
   2909.79, 3094.12, 3726.93, 3760.03, 3678.63, 3480.27, 3516.08, 3373.64,
   2981.6, 3134.16, 3505.73, 3275.95, 2986.01, 2599.6, 2593.19, 2764.45,

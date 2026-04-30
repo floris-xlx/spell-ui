@@ -2,7 +2,6 @@
 
 import { Chart } from "@/registry/spell-ui/chart";
 
-// Real BTC monthly closes (Yahoo Finance), Jan 2016 → Apr 2026
 const data = [
   369, 438, 417, 448, 531, 673, 625, 575, 610, 701, 746, 964, 970, 1180, 1072,
   1348, 2286, 2481, 2875, 4703, 4339, 6468, 10234, 14156, 10221, 10398, 6974,

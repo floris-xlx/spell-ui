@@ -2,7 +2,6 @@
 
 import { Chart } from "@/registry/spell-ui/chart";
 
-// Real NVDA daily closes (Yahoo Finance), May 2024 → Apr 2026
 const data = [
   89.88, 90.4, 91.36, 94.63, 94.36, 92.48, 94.78, 95.39, 94.95, 103.8, 106.47,
   113.9, 114.82, 110.5, 109.63, 115, 116.44, 122.44, 121, 120.89, 121.79,
