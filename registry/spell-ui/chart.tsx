@@ -99,6 +99,17 @@ export function Chart({
   const [activeIndex, setActiveIndex] = React.useState<number>(
     defaultIndex ?? Math.max(0, data.length - 1),
   );
+  const [containerWidth, setContainerWidth] = React.useState<number>(width);
+
+  React.useEffect(() => {
+    if (!root.current) return;
+    const ro = new ResizeObserver((entries) => {
+      const w = entries[0]?.contentRect.width;
+      if (w) setContainerWidth(w);
+    });
+    ro.observe(root.current);
+    return () => ro.disconnect();
+  }, []);
 
   const points = React.useMemo(() => {
     const n = data.length;
@@ -145,12 +156,14 @@ export function Chart({
   const tickIndices = React.useMemo(() => {
     if (!axisVisible) return [];
     const n = points.length;
-    const count = Math.min(tickCount, n);
+    // Estimate label width ~80px and require min gap so labels don't overlap.
+    const maxFit = Math.max(2, Math.floor(containerWidth / 80));
+    const count = Math.min(tickCount, maxFit, n);
     if (count <= 1) return [0];
     return Array.from({ length: count }, (_, i) =>
       Math.round((i * (n - 1)) / (count - 1)),
     );
-  }, [axisVisible, points.length, tickCount]);
+  }, [axisVisible, points.length, tickCount, containerWidth]);
 
   if (points.length === 0 || !active) return null;
 

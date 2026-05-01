@@ -62,12 +62,9 @@ const data = [
 const start = new Date(2024, 4, 10).getTime();
 const end = new Date(2026, 3, 30).getTime();
 const labels = data.map((_, i) => {
-  const t = start + (i / (data.length - 1)) * (end - start);
-  return new Date(t).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
+  const d = new Date(start + (i / (data.length - 1)) * (end - start));
+  const month = d.toLocaleDateString("en-US", { month: "short" });
+  return `${month} '${String(d.getFullYear()).slice(-2)}`;
 });
 
 export function Demo() {

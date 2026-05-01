@@ -5,7 +5,7 @@ import { Demo as DemoColor } from './demo-color'
 import { Demo as DemoStatic } from './demo-static'
 
 <DemoCanvas>
-  <DemoPreview>
+  <DemoPreview className="p-6 md:p-10">
     <Demo />
   </DemoPreview>
   <DemoCode>
@@ -25,10 +25,8 @@ import { Demo as DemoStatic } from './demo-static'
 
 ### Reveal effect
 
-Pass `reveal` to gray-out the line until the cursor passes over it — useful for decorative/marketing use, not for serious data viz.
-
 <DemoCanvas>
-  <DemoPreview>
+  <DemoPreview className="p-6 md:p-10">
     <DemoReveal />
   </DemoPreview>
   <DemoCode>
@@ -39,10 +37,8 @@ Pass `reveal` to gray-out the line until the cursor passes over it — useful fo
 
 ### Custom tooltip format
 
-`formatValue` receives the value and its index, so you can pair the data with labels.
-
 <DemoCanvas>
-  <DemoPreview>
+  <DemoPreview className="p-6 md:p-10">
     <DemoCustom />
   </DemoPreview>
   <DemoCode>
@@ -53,10 +49,8 @@ Pass `reveal` to gray-out the line until the cursor passes over it — useful fo
 
 ### Custom color
 
-Pass any hex string via `color`. The line, dot, and gradient fill all derive from it.
-
 <DemoCanvas>
-  <DemoPreview>
+  <DemoPreview className="p-6 md:p-10">
     <DemoColor />
   </DemoPreview>
   <DemoCode>
@@ -67,10 +61,8 @@ Pass any hex string via `color`. The line, dot, and gradient fill all derive fro
 
 ### Without animation
 
-Set `animated={false}` to make the cursor, dot, and tooltip jump to the active point instantly with no transition.
-
 <DemoCanvas>
-  <DemoPreview>
+  <DemoPreview className="p-6 md:p-10">
     <DemoStatic />
   </DemoPreview>
   <DemoCode>
