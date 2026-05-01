@@ -285,7 +285,7 @@ export function Chart({
           left: `${activeXPct * 100}%`,
           top: `${activeYPct * 100}%`,
           transform:
-            activeXPct > 0.65
+            activeXPct > 0.5
               ? "translate(calc(-100% - 12px), -50%)"
               : "translate(12px, -50%)",
           transition: `left ${transition}, top ${transition}, transform ${transition}`,
