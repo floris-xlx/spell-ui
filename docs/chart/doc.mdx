@@ -82,7 +82,7 @@ const data = [12, 18, 15, 24, 22, 30, 28, 35, 42, 38, 48, 56];
 <Chart data={data} />
 ```
 
-The chart auto-scales the Y axis to the data range. Hover snaps to the nearest data point — like recharts.
+The chart auto-scales the Y axis to the data range. Hover snaps to the nearest data point.
 
 ## Props
 
@@ -91,35 +91,35 @@ The chart auto-scales the Y axis to the data range. Hover snaps to the nearest d
     {
       name: "data",
       type: "number[]",
-      nameDetails: "Numeric values to plot — one segment per pair of consecutive points"
+      nameDetails: "Numeric values to plot"
     },
     {
       name: "labels",
       type: "string[]",
-      nameDetails: "Optional label for each data point — shown at the top of the tooltip card"
+      nameDetails: "Optional label for each data point"
     },
     {
       name: "name",
       type: "string",
-      nameDetails: "Series name shown next to the indicator dot in the tooltip"
+      nameDetails: "Series name shown in the tooltip"
     },
     {
       name: "color",
       type: "string",
       default: "\"#0090FD\"",
-      nameDetails: "Line + dot color as a hex string. The fill gradient is derived from it"
+      nameDetails: "Line and dot color as a hex string"
     },
     {
       name: "width",
       type: "number",
       default: "640",
-      nameDetails: "Maximum chart width in pixels. The chart preserves a 640:220 aspect ratio"
+      nameDetails: "Maximum chart width in pixels"
     },
     {
       name: "formatValue",
       type: "(value: number, index: number) => React.ReactNode",
       default: "v => v.toLocaleString()",
-      nameDetails: "Format the tooltip badge content"
+      nameDetails: "Format the tooltip value"
     },
     {
       name: "defaultIndex",
@@ -131,42 +131,42 @@ The chart auto-scales the Y axis to the data range. Hover snaps to the nearest d
       name: "showXAxis",
       type: "boolean",
       default: "true",
-      nameDetails: "Show evenly-spaced tick labels along the bottom (requires `labels`)"
+      nameDetails: "Show tick labels along the bottom"
     },
     {
       name: "tickCount",
       type: "number",
       default: "6",
-      nameDetails: "Target number of ticks shown on the X axis"
+      nameDetails: "Target number of ticks on the X axis"
     },
     {
       name: "reveal",
       type: "boolean",
       default: "false",
-      nameDetails: "Gray the line + fill until the cursor passes over them — opt-in decorative effect"
+      nameDetails: "Gray the line until the cursor passes over it"
     },
     {
       name: "showFill",
       type: "boolean",
       default: "true",
-      nameDetails: "Show the gray gradient fill under the line"
+      nameDetails: "Show the gradient fill under the line"
     },
     {
       name: "showDot",
       type: "boolean",
       default: "true",
-      nameDetails: "Show the colored dot at the active data point"
+      nameDetails: "Show the colored dot at the active point"
     },
     {
       name: "animated",
       type: "boolean",
       default: "true",
-      nameDetails: "Smoothly animate the cursor, dot, and tooltip when the active point changes"
+      nameDetails: "Animate the cursor, dot, and tooltip on hover"
     },
     {
       name: "className",
       type: "string",
-      nameDetails: "Additional CSS classes on the root container"
+      nameDetails: "Additional CSS classes"
     }
   ]}
 />
