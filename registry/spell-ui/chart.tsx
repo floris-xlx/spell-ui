@@ -11,6 +11,13 @@ const PAD_Y_BOTTOM = 12;
 const LINE_WIDTH = 2;
 const CORNER_RADIUS = 2.5;
 const TRANSITION = "200ms cubic-bezier(0.16, 1, 0.3, 1)";
+const TOOLTIP_SHADOW = [
+  "0 0 0 1px rgba(0, 0, 0, 0.04)",
+  "0 1px 2px rgba(0, 0, 0, 0.04)",
+  "0 4px 16px -4px rgba(0, 0, 0, 0.12)",
+  "0 12px 32px -8px rgba(0, 0, 0, 0.08)",
+].join(", ");
+const DOT_SHADOW = "0 0 0 2px #FFF, 0 0 8px 2px rgba(0, 0, 0, 0.12)";
 
 function buildRoundedPath(
   pts: Array<{ x: number; y: number }>,
@@ -254,43 +261,48 @@ export function Chart({
         )}
       </svg>
 
-      <div
-        className="absolute pointer-events-none rounded-full bg-[var(--spell-line)] left-0"
-        style={{
-          width: LINE_WIDTH,
-          top: `${(PAD_Y_TOP / VIEWBOX_H) * 100}%`,
-          height: `${((VIEWBOX_H - PAD_Y_TOP - PAD_Y_BOTTOM / 2) / VIEWBOX_H) * 100}%`,
-          transform: `translate3d(${activeXPct * containerWidth - LINE_WIDTH / 2}px, 0, 0)`,
-          transition: `transform ${transition}`,
-          willChange: "transform",
-        }}
-      />
+      {(() => {
+        const cursorPx = activeXPct * containerWidth;
+        const containerHeight = (containerWidth * VIEWBOX_H) / VIEWBOX_W;
+        const cursorYpx = activeYPct * containerHeight;
+        const tooltipOnLeft = activeXPct > 0.5;
+        return (
+          <>
+            <div
+              className="absolute pointer-events-none rounded-full bg-[var(--spell-line)] left-0"
+              style={{
+                width: LINE_WIDTH,
+                top: `${(PAD_Y_TOP / VIEWBOX_H) * 100}%`,
+                height: `${((VIEWBOX_H - PAD_Y_TOP - PAD_Y_BOTTOM / 2) / VIEWBOX_H) * 100}%`,
+                transform: `translate3d(${cursorPx - LINE_WIDTH / 2}px, 0, 0)`,
+                transition: `transform ${transition}`,
+                willChange: "transform",
+              }}
+            />
 
-      {showDot && (
-        <div
-          className="absolute pointer-events-none w-3 h-3 rounded-full bg-[var(--spell-color)] z-10 left-0 top-0"
-          style={{
-            transform: `translate3d(${activeXPct * containerWidth - 6}px, ${activeYPct * (containerWidth * VIEWBOX_H) / VIEWBOX_W - 6}px, 0)`,
-            boxShadow: "0 0 0 2px #FFF, 0 0 8px 2px rgba(0, 0, 0, 0.12)",
-            transition: `transform ${transition}`,
-            willChange: "transform",
-          }}
-        />
-      )}
+            {showDot && (
+              <div
+                className="absolute pointer-events-none w-3 h-3 rounded-full bg-[var(--spell-color)] z-10 left-0 top-0"
+                style={{
+                  transform: `translate3d(${cursorPx - 6}px, ${cursorYpx - 6}px, 0)`,
+                  boxShadow: DOT_SHADOW,
+                  transition: `transform ${transition}`,
+                  willChange: "transform",
+                }}
+              />
+            )}
 
-      <div
-        className="absolute pointer-events-none z-20 grid min-w-32 items-start gap-1.5 rounded-lg bg-background px-2.5 py-1.5 text-xs left-0 top-0"
-        style={{
-          transform:
-            activeXPct > 0.5
-              ? `translate3d(calc(${activeXPct * containerWidth}px - 100% - 12px), calc(${activeYPct * (containerWidth * VIEWBOX_H) / VIEWBOX_W}px - 50%), 0)`
-              : `translate3d(calc(${activeXPct * containerWidth + 12}px), calc(${activeYPct * (containerWidth * VIEWBOX_H) / VIEWBOX_W}px - 50%), 0)`,
-          transition: `transform ${transition}`,
-          willChange: "transform",
-          boxShadow:
-            "0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px -4px rgba(0, 0, 0, 0.12), 0 12px 32px -8px rgba(0, 0, 0, 0.08)",
-        }}
-      >
+            <div
+              className="absolute pointer-events-none z-20 grid min-w-32 items-start gap-1.5 rounded-lg bg-background px-2.5 py-1.5 text-xs left-0 top-0"
+              style={{
+                transform: tooltipOnLeft
+                  ? `translate3d(calc(${cursorPx}px - 100% - 12px), calc(${cursorYpx}px - 50%), 0)`
+                  : `translate3d(${cursorPx + 12}px, calc(${cursorYpx}px - 50%), 0)`,
+                transition: `transform ${transition}`,
+                willChange: "transform",
+                boxShadow: TOOLTIP_SHADOW,
+              }}
+            >
         {labels?.[active.index] && (
           <div className="font-medium text-foreground">
             {labels[active.index]}
@@ -313,6 +325,9 @@ export function Chart({
           </div>
         </div>
       </div>
+          </>
+        );
+      })()}
       </div>
 
       {axisVisible && (

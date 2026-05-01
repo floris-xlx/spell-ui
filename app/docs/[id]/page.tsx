@@ -100,7 +100,7 @@ export default async function DocPage({
     <div className="container py-8 md:py-12">
       <div className="xl:grid xl:grid-cols-[10px_1fr_200px] lg:grid-cols-[0px_1fr_200px] xl:gap-8 max-w-[1600px] mx-auto">
         <div className="hidden xl:block" />
-        <article className="max-w-4xl prose dark:prose-invert w-full">
+        <article className="max-w-4xl prose dark:prose-invert w-full min-w-0">
           <header className="not-prose mb-8">
             <Breadcrumb className="mb-2">
               <BreadcrumbList>
