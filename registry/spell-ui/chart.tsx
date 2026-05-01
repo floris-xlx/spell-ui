@@ -255,40 +255,38 @@ export function Chart({
       </svg>
 
       <div
-        className="absolute pointer-events-none rounded-full bg-[var(--spell-line)]"
+        className="absolute pointer-events-none rounded-full bg-[var(--spell-line)] left-0"
         style={{
           width: LINE_WIDTH,
-          left: `${activeXPct * 100}%`,
           top: `${(PAD_Y_TOP / VIEWBOX_H) * 100}%`,
           height: `${((VIEWBOX_H - PAD_Y_TOP - PAD_Y_BOTTOM / 2) / VIEWBOX_H) * 100}%`,
-          transform: `translateX(-${LINE_WIDTH / 2}px)`,
-          transition: `left ${transition}`,
+          transform: `translate3d(${activeXPct * containerWidth - LINE_WIDTH / 2}px, 0, 0)`,
+          transition: `transform ${transition}`,
+          willChange: "transform",
         }}
       />
 
       {showDot && (
         <div
-          className="absolute pointer-events-none w-3 h-3 rounded-full bg-[var(--spell-color)] z-10"
+          className="absolute pointer-events-none w-3 h-3 rounded-full bg-[var(--spell-color)] z-10 left-0 top-0"
           style={{
-            left: `${activeXPct * 100}%`,
-            top: `${activeYPct * 100}%`,
-            transform: "translate(-50%, -50%)",
+            transform: `translate3d(${activeXPct * containerWidth - 6}px, ${activeYPct * (containerWidth * VIEWBOX_H) / VIEWBOX_W - 6}px, 0)`,
             boxShadow: "0 0 0 2px #FFF, 0 0 8px 2px rgba(0, 0, 0, 0.12)",
-            transition: `left ${transition}, top ${transition}, transform ${transition}`,
+            transition: `transform ${transition}`,
+            willChange: "transform",
           }}
         />
       )}
 
       <div
-        className="absolute pointer-events-none z-20 grid min-w-32 items-start gap-1.5 rounded-lg bg-background px-2.5 py-1.5 text-xs"
+        className="absolute pointer-events-none z-20 grid min-w-32 items-start gap-1.5 rounded-lg bg-background px-2.5 py-1.5 text-xs left-0 top-0"
         style={{
-          left: `${activeXPct * 100}%`,
-          top: `${activeYPct * 100}%`,
           transform:
             activeXPct > 0.5
-              ? "translate(calc(-100% - 12px), -50%)"
-              : "translate(12px, -50%)",
-          transition: `left ${transition}, top ${transition}, transform ${transition}`,
+              ? `translate3d(calc(${activeXPct * containerWidth}px - 100% - 12px), calc(${activeYPct * (containerWidth * VIEWBOX_H) / VIEWBOX_W}px - 50%), 0)`
+              : `translate3d(calc(${activeXPct * containerWidth + 12}px), calc(${activeYPct * (containerWidth * VIEWBOX_H) / VIEWBOX_W}px - 50%), 0)`,
+          transition: `transform ${transition}`,
+          willChange: "transform",
           boxShadow:
             "0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px -4px rgba(0, 0, 0, 0.12), 0 12px 32px -8px rgba(0, 0, 0, 0.08)",
         }}

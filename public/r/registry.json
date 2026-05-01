@@ -8,7 +8,7 @@
       "name": "chart",
       "type": "registry:component",
       "title": "Chart",
-      "description": "Decorative line chart with a cursor-tracked tooltip badge, motion-path dot, and animated NumberFlow value.",
+      "description": "Interactive line chart with a cursor-tracked tooltip card, snap-to-point hover, and built-in X-axis labels.",
       "files": [
         {
           "path": "registry/spell-ui/chart.tsx",
