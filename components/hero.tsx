@@ -3,12 +3,12 @@ import { PerspectiveBook } from "@/registry/spell-ui/perspective-book";
 import { RichButton } from "@/registry/spell-ui/rich-button";
 import { BookOpen } from "lucide-react";
 import Link from "next/link";
-import { TextMarquee } from "@/registry/spell-ui/text-marquee";
-import SpotifyCardCarouselDemo from "@/docs/spotify-card/demo-carousel";
-import { Demo as ColorSelectorDemo } from "@/docs/color-selector/demo";
-import { Demo as MarqueeDemo } from "@/docs/marquee/demo";
-import { Demo as AnimatedCheckboxDemo } from "@/docs/animated-checkbox/demo";
-import { ShimmerText } from "@/registry/spell-ui/shimmer-text";
+import LightRays from "@/registry/spell-ui/light-rays";
+import AnimatedGradient from "@/registry/spell-ui/animated-gradient";
+import { Demo as ExplodingInputDemo } from "@/docs/exploding-input/demo";
+import SpotifyCardDemo from "@/docs/spotify-card/demo";
+import { Demo as PopButtonDemo } from "@/docs/pop-button/demo";
+import { Demo as SignatureDemo } from "@/docs/signature/demo";
 import { HomepageSponsors } from "./homepage-sponsors";
 
 export function Hero() {
@@ -39,30 +39,21 @@ export function Hero() {
 
       {/* Bento Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-dense gap-4 w-full max-w-[1400px]">
-        <div className="col-span-1 md:col-span-2 row-span-1 md:row-span-2 rounded-2xl border shadow-inner min-h-[300px] md:min-h-[400px] flex flex-col p-4">
-          <div className="flex-1 flex items-center justify-center">
-            <TextMarquee
-              height={300}
-              speed={1}
-              prefix={
-                <span className="text-2xl md:text-3xl text-muted-foreground/75 font-medium">
-                  yourwebsite.com/
-                </span>
-              }
-            >
-              <p className="text-2xl md:text-3xl font-medium">emily</p>
-              <p className="text-2xl md:text-3xl font-medium">james</p>
-              <p className="text-2xl md:text-3xl font-medium">dennis</p>
-              <p className="text-2xl md:text-3xl font-medium">max</p>
-              <p className="text-2xl md:text-3xl font-medium">michele</p>
-              <p className="text-2xl md:text-3xl font-medium">adgv</p>
-              <p className="text-2xl md:text-3xl font-medium">tomm</p>
-              <p className="text-2xl md:text-3xl font-medium">hugh</p>
-              <p className="text-2xl md:text-3xl font-medium">alex</p>
-            </TextMarquee>
+        <div className="relative col-span-1 md:col-span-2 row-span-1 md:row-span-2 rounded-2xl border shadow-inner min-h-[300px] md:min-h-[400px] overflow-hidden">
+          <LightRays
+            backgroundColor="var(--background)"
+            raysColor={{ mode: "multi", color1: "#2060DF", color2: "#ffffff" }}
+            style={{ zIndex: 0 }}
+          />
+          <div className="relative z-10 h-full min-h-[300px] md:min-h-[400px] flex items-center justify-center">
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-4xl md:text-5xl font-semibold tracking-tighter">Beautiful</p>
+              <p className="text-4xl md:text-5xl font-medium italic font-serif">Light Rays</p>
+            </div>
           </div>
-          <Link href="/docs/text-marquee" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Text Marquee</Link>
+          <Link href="/docs/light-rays" className="absolute bottom-4 left-4 z-20 text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Light Rays</Link>
         </div>
+
         <div className="col-span-1 row-span-1 md:row-span-2 lg:col-start-4 lg:row-start-2 rounded-2xl border shadow-inner min-h-[300px] md:min-h-[400px] flex flex-col p-4">
           <div className="flex-1 flex items-center justify-center">
             <PerspectiveBook>
@@ -76,37 +67,44 @@ export function Hero() {
           </div>
           <Link href="/docs/perspective-book" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Perspective Book</Link>
         </div>
+
         <div className="col-span-1 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4">
           <div className="flex-1 flex items-center justify-center">
-            <ShimmerText className="text-lg font-medium" duration={1}>
-              Thinking longer...
-            </ShimmerText>
+            <ExplodingInputDemo />
           </div>
-          <Link href="/docs/shimmer-text" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Shimmer Text</Link>
+          <Link href="/docs/exploding-input" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Exploding Input</Link>
         </div>
-        <div className="col-span-1 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4">
-          <div className="flex-1 flex items-center justify-center">
-            <AnimatedCheckboxDemo />
-          </div>
-          <Link href="/docs/animated-checkbox" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Animated Checkbox</Link>
-        </div>
+
         <div className="col-span-1 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4 overflow-hidden">
           <div className="flex-1 flex items-center justify-center">
-            <MarqueeDemo />
-          </div>
-          <Link href="/docs/marquee" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Marquee</Link>
-        </div>
-        <div className="col-span-1 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4">
-          <div className="flex-1 flex items-center justify-center">
-            <ColorSelectorDemo />
-          </div>
-          <Link href="/docs/color-selector" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Color Selector</Link>
-        </div>
-        <div className="col-span-1 md:col-span-2 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4">
-          <div className="flex-1 flex items-center justify-center">
-            <SpotifyCardCarouselDemo />
+            <SpotifyCardDemo />
           </div>
           <Link href="/docs/spotify-card" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Spotify Card</Link>
+        </div>
+
+        <div className="col-span-1 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4">
+          <div className="flex-1 flex items-center justify-center">
+            <PopButtonDemo />
+          </div>
+          <Link href="/docs/pop-button" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Pop Button</Link>
+        </div>
+
+        <div className="col-span-1 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] flex flex-col p-4 overflow-hidden">
+          <div className="flex-1 flex items-center justify-center">
+            <SignatureDemo />
+          </div>
+          <Link href="/docs/signature" className="text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Signature</Link>
+        </div>
+
+        <div className="relative col-span-1 md:col-span-2 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] overflow-hidden">
+          <AnimatedGradient style={{ zIndex: 0 }} config={{ preset: "Prism" }} />
+          <div className="relative z-10 h-full min-h-[200px] md:min-h-[240px] flex items-center justify-center">
+            <div className="flex flex-col items-center text-white gap-1">
+              <p className="text-3xl md:text-4xl font-semibold tracking-tighter">Animated</p>
+              <p className="text-3xl md:text-4xl font-medium italic font-serif">Gradient</p>
+            </div>
+          </div>
+          <Link href="/docs/animated-gradient" className="absolute bottom-4 left-4 z-20 text-sm leading-4 text-muted-foreground hover:text-foreground transition-colors">Animated Gradient</Link>
         </div>
       </div>
     </div>
