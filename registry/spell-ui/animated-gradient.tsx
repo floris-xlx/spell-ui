@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { useRef, useEffect, useMemo, useState, type CSSProperties } from "react";
 
 type PatternShape = "Checks" | "Stripes" | "Edge";
@@ -10,10 +11,13 @@ const PatternShapes: Record<PatternShape, number> = {
   Edge: 2,
 };
 
-interface PresetParams {
+interface PresetColors {
   color1: string;
   color2: string;
   color3: string;
+}
+
+interface PresetParams extends PresetColors {
   rotation: number;
   proportion: number;
   scale: number;
@@ -25,6 +29,7 @@ interface PresetParams {
   offset: number;
   shape: PatternShape;
   shapeSize: number;
+  lightColors?: PresetColors;
 }
 
 const presets: Record<PresetName, PresetParams> = {
@@ -32,6 +37,11 @@ const presets: Record<PresetName, PresetParams> = {
     color1: "#050505",
     color2: "#66B3FF",
     color3: "#FFFFFF",
+    lightColors: {
+      color1: "#FAFAFA",
+      color2: "#66B3FF",
+      color3: "#050505",
+    },
     rotation: -50,
     proportion: 1,
     scale: 0.01,
@@ -48,6 +58,11 @@ const presets: Record<PresetName, PresetParams> = {
     color1: "#FF9F21",
     color2: "#FF0303",
     color3: "#000000",
+    lightColors: {
+      color1: "#FF9F21",
+      color2: "#FF0303",
+      color3: "#FAFAFA",
+    },
     rotation: 114,
     proportion: 100,
     scale: 0.52,
@@ -64,6 +79,11 @@ const presets: Record<PresetName, PresetParams> = {
     color1: "#B566FF",
     color2: "#000000",
     color3: "#000000",
+    lightColors: {
+      color1: "#B566FF",
+      color2: "#FAFAFA",
+      color3: "#FAFAFA",
+    },
     rotation: 0,
     proportion: 63,
     scale: 0.75,
@@ -80,6 +100,11 @@ const presets: Record<PresetName, PresetParams> = {
     color1: "#66FF85",
     color2: "#000000",
     color3: "#000000",
+    lightColors: {
+      color1: "#66FF85",
+      color2: "#FAFAFA",
+      color3: "#FAFAFA",
+    },
     rotation: -167,
     proportion: 92,
     scale: 0,
@@ -96,6 +121,11 @@ const presets: Record<PresetName, PresetParams> = {
     color1: "#000000",
     color2: "#FFFFFF",
     color3: "#000000",
+    lightColors: {
+      color1: "#FAFAFA",
+      color2: "#000000",
+      color3: "#FAFAFA",
+    },
     rotation: 50,
     proportion: 41,
     scale: 0.4,
@@ -112,6 +142,11 @@ const presets: Record<PresetName, PresetParams> = {
     color1: "#050505",
     color2: "#FF66B8",
     color3: "#050505",
+    lightColors: {
+      color1: "#FAFAFA",
+      color2: "#FF66B8",
+      color3: "#FAFAFA",
+    },
     rotation: 0,
     proportion: 33,
     scale: 0.48,
@@ -179,6 +214,7 @@ export default function AnimatedGradient({
   const startTimeRef = useRef<number>(0);
 
   const [isMounted, setIsMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     setIsMounted(true);
@@ -205,11 +241,13 @@ export default function AnimatedGradient({
       };
     }
     const preset = presets[config.preset] || presets.Prism;
+    const useLight = isMounted && resolvedTheme === "light" && preset.lightColors;
     return {
       ...preset,
+      ...(useLight ? preset.lightColors : null),
       speed: config.speed ?? preset.speed,
     };
-  }, [config]);
+  }, [config, isMounted, resolvedTheme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

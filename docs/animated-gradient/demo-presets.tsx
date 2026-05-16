@@ -19,8 +19,8 @@ export function DemoPresets() {
             onClick={() => setActivePreset(preset)}
             className={`px-3 py-1 text-sm font-medium tracking-tight cursor-pointer rounded-full transition-colors ${
               activePreset === preset
-                ? "bg-white text-black"
-                : "bg-transparent text-white"
+                ? "bg-foreground text-background"
+                : "bg-transparent text-foreground"
             }`}
           >
             {preset}
@@ -28,7 +28,7 @@ export function DemoPresets() {
         ))}
       </div>
       <div className="relative z-10 flex-1 flex items-center justify-center">
-        <p className="text-4xl font-semibold tracking-tighter text-white mix-blend-exclusion">
+        <p className="text-4xl font-semibold tracking-tighter text-foreground">
           {activePreset}
         </p>
       </div>

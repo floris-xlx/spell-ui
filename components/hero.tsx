@@ -99,7 +99,7 @@ export function Hero() {
         <div className="relative col-span-1 md:col-span-2 rounded-2xl border shadow-inner min-h-[200px] md:min-h-[240px] overflow-hidden">
           <AnimatedGradient style={{ zIndex: 0 }} config={{ preset: "Prism" }} />
           <div className="relative z-10 h-full min-h-[200px] md:min-h-[240px] flex items-center justify-center">
-            <div className="flex flex-col items-center text-white gap-1">
+            <div className="flex flex-col items-center text-foreground gap-1">
               <p className="text-3xl md:text-4xl font-semibold tracking-tighter">Animated</p>
               <p className="text-3xl md:text-4xl font-medium italic font-serif">Gradient</p>
             </div>
