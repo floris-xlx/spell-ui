@@ -1,0 +1,45 @@
+@startuml
+title Sponsor Rendering After Runtime Table Fallback
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontColor #000000
+skinparam ArrowColor #000000
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+actor "Visitor" as Visitor #FFFFFF
+rectangle "Next.js App Router" as App #E8F1FF {
+  component "Hero\nHomepageSponsors" as Home #D7E8FF
+  component "SiteFooter" as Footer #D7E8FF
+  component "SponsorSection" as Section #D7E8FF
+}
+
+component "db/sponsor-read-model.ts\ngetActiveSponsorRows()" as ReadModel #E7DDFF
+component "ensureSponsorsTable()" as Ensure #FFF0D6
+artifact "sql/sponsors.sql\nmanual create statement" as SQLFile #F6F6F6
+
+database "Turso / libSQL" as DB #FFF7D6 {
+  rectangle "users table\ncreated if missing" as Users #E9FFE3
+  rectangle "sponsors table\ncreated if missing" as Sponsors #E9FFE3
+}
+
+Visitor --> App : GET /
+Home --> ReadModel : load active sponsors
+Footer --> ReadModel : load active sponsors
+Section --> ReadModel : load active sponsors
+ReadModel --> Ensure : before sponsor query
+Ensure --> DB : CREATE TABLE IF NOT EXISTS users
+Ensure --> DB : CREATE TABLE IF NOT EXISTS sponsors
+Ensure --> DB : create indexes if missing
+Ensure --> DB : add optional columns if absent
+ReadModel --> DB : select active sponsors\njoin users
+DB --> ReadModel : sponsor rows or query error
+ReadModel --> App : rows, or [] fallback
+App --> Visitor : page renders
+SQLFile ..> Ensure : same schema documented\nfor direct DB runs
+
+note right of ReadModel
+  Sponsor display surfaces now share one
+  fallback-aware read path.
+end note
+@enduml

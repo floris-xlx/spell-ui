@@ -1,7 +1,4 @@
-import { db } from "@/db";
-import { sponsors } from "@/db/schemas/sponsor";
-import { users } from "@/db/schemas/auth";
-import { eq } from "drizzle-orm";
+import { getActiveSponsorRows } from "@/db/sponsor-read-model";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/config";
 import Link from "next/link";
@@ -23,18 +20,7 @@ const TIER_LOGO_SIZE: Record<string, string> = {
 };
 
 async function getActiveSponsors() {
-  const rows = await db
-    .select({
-      tierId: sponsors.tierId,
-      userName: users.name,
-      userImage: users.image,
-      logoUrl: sponsors.logoUrl,
-      logoDarkUrl: sponsors.logoDarkUrl,
-      websiteUrl: sponsors.websiteUrl,
-    })
-    .from(sponsors)
-    .innerJoin(users, eq(sponsors.userId, users.id))
-    .where(eq(sponsors.status, "active"));
+  const rows = await getActiveSponsorRows();
 
   return rows.sort((a, b) => {
     const ai = TIER_ORDER.indexOf(a.tierId as (typeof TIER_ORDER)[number]);

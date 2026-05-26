@@ -1,0 +1,35 @@
+@startuml
+title Sponsor Rendering Before Runtime Table Fallback
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontColor #000000
+skinparam ArrowColor #000000
+skinparam shadowing false
+skinparam componentStyle rectangle
+
+actor "Visitor" as Visitor #FFFFFF
+rectangle "Next.js App Router" as App #E8F1FF {
+  component "Hero\nHomepageSponsors" as Home #D7E8FF
+  component "SiteFooter" as Footer #D7E8FF
+  component "SponsorSection" as Section #D7E8FF
+}
+
+database "Turso / libSQL" as DB #FFF7D6 {
+  rectangle "users table\nexpected by join" as Users #FFD6D6
+  rectangle "sponsors table\nexpected by query" as Sponsors #FFD6D6
+}
+
+Visitor --> App : GET /
+Home --> DB : select active sponsors\njoin users
+Footer --> DB : select active sponsors\njoin users
+Section --> DB : select active sponsors\njoin users
+DB --> Home : SQLITE_UNKNOWN\nno such table: sponsors
+DB --> Footer : SQLITE_UNKNOWN\nno such table: sponsors
+DB --> Section : SQLITE_UNKNOWN\nno such table: sponsors
+App --> Visitor : 500 render failure
+
+note right of Sponsors
+  The schemas exist in code and migrations,
+  but an unmigrated database can miss these tables.
+end note
+@enduml
